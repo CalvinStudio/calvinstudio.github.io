@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CALVIN</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="/https://calvinstudio.github.io/"/>
+  <updated>2019-11-13T09:16:30.405Z</updated>
+  <id>/https://calvinstudio.github.io/</id>
+  
+  <author>
+    <name>CALVIN</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>秋日一游</title>
+    <link href="/https://calvinstudio.github.io/2019/11/09/Photo/"/>
+    <id>/https://calvinstudio.github.io/2019/11/09/Photo/</id>
+    <published>2019-11-09T13:15:31.000Z</published>
+    <updated>2019-11-13T09:16:30.405Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天天气不错，出去浪了浪~~~~😎&lt;br&gt; 拍了一些照片，觉得好看的话可以单击进入图床下载哦😛&lt;/p&gt;
+&lt;h2 id=&quot;马鞍山森林公园&quot;&gt;&lt;a href=&quot;#马鞍山森林公园&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="/https://calvinstudio.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="随想" scheme="/https://calvinstudio.github.io/categories/%E7%94%9F%E6%B4%BB/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+      <category term="照片" scheme="/https://calvinstudio.github.io/tags/%E7%85%A7%E7%89%87/"/>
+    
+      <category term="图集" scheme="/https://calvinstudio.github.io/tags/%E5%9B%BE%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Website Recommendation</title>
+    <link href="/https://calvinstudio.github.io/2019/11/07/Web/"/>
+    <id>/https://calvinstudio.github.io/2019/11/07/Web/</id>
+    <published>2019-11-07T14:45:00.000Z</published>
+    <updated>2019-11-16T05:24:30.603Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;&lt;em&gt;This is a collection of several tool sites in my collection:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;格式转换&quot;&gt;&lt;a href=&quot;#格式转换&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="资源" scheme="/https://calvinstudio.github.io/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="Tools" scheme="/https://calvinstudio.github.io/tags/Tools/"/>
+    
+      <category term="网站" scheme="/https://calvinstudio.github.io/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+</feed>
