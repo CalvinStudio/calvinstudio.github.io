@@ -403,7 +403,7 @@
                         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
                         
                                 <div class="entry-content">
-                                    <h2 id="2D-Array"><a href="#2D-Array" class="headerlink" title="2D Array"></a>2D Array</h2><pre><code class="cpp">float **TwoArrayAlloc(int r, int c) // 分配二维内存数组//
+                                    <h2 id="2D-Array"><a href="#2D-Array" class="headerlink" title="2D Array"></a>2D Array</h2><pre><code class="lang-cpp">float **TwoArrayAlloc(int r, int c) // 分配二维内存数组//
 {
     float **p;
     p = (float **)calloc(r, sizeof(float *));  //第一维
@@ -414,13 +414,13 @@
     return(p);
 }
 </code></pre>
-<pre><code class="cpp">void TwoArrayFree(float **x)
+<pre><code class="lang-cpp">void TwoArrayFree(float **x)
 {
     free(x[0]);
     free(x);
 }
 </code></pre>
-<pre><code class="cpp">float Min(float **p, int nx, int nz) //二维数组中最小值//
+<pre><code class="lang-cpp">float Min(float **p, int nx, int nz) //二维数组中最小值//
 {
     float min;
     int i, j;
@@ -438,7 +438,7 @@
     return min;
 }
 </code></pre>
-<pre><code class="cpp">float Max(float **p, int nx, int nz) //二维数组中最大值//
+<pre><code class="lang-cpp">float Max(float **p, int nx, int nz) //二维数组中最大值//
 {
     float max;
     int i, j;
@@ -456,7 +456,7 @@
     return max;
 }
 </code></pre>
-<h2 id="3D-Array"><a href="#3D-Array" class="headerlink" title="3D Array"></a>3D Array</h2><pre><code class="cpp">float ***ThreeArrayAlloc(int l, int m, int n) // 分配三维内存数组//
+<h2 id="3D-Array"><a href="#3D-Array" class="headerlink" title="3D Array"></a>3D Array</h2><pre><code class="lang-cpp">float ***ThreeArrayAlloc(int l, int m, int n) // 分配三维内存数组//
 {
     //int l,m,n;  //三维的长度，假设已知
     float ***p;
@@ -471,15 +471,14 @@
     return(p);
 }
 </code></pre>
-<pre><code class="cpp">void ThreeArrayFree(float ***p)
+<pre><code class="lang-cpp">void ThreeArrayFree(float ***p)
 {
     free(p[0][0]);  //第三维     
     free(p[0]);   //第二维
     free(p);  //第一维
 }
-
 </code></pre>
-<pre><code class="cpp">float Min(float ***p, int nx, int ny, int nz)
+<pre><code class="lang-cpp">float Min(float ***p, int nx, int ny, int nz)
 {
     float min;
     min = p[0][0][0];
@@ -495,7 +494,7 @@
     return min;
 }
 </code></pre>
-<pre><code class="cpp">float Max(float ***p, int nx, int ny, int nz)
+<pre><code class="lang-cpp">float Max(float ***p, int nx, int ny, int nz)
 {
     float max;
     max = p[0][0][0];
@@ -511,7 +510,7 @@
     return max;
 }
 </code></pre>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre><code class="cpp">void sort(float *array, int n) //一维数组排序算法//
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre><code class="lang-cpp">void sort(float *array, int n) //一维数组排序算法//
 {
     int i, j, k;
     float t;
@@ -525,7 +524,6 @@
     }
 }
 </code></pre>
-<hr>
 
                                 </div>
                                 <!-- .entry-content -->
@@ -556,17 +554,17 @@
                     <section class="post-squares nextprev">
                         
                             
-                                <div class="post-nepre half previous">
-                                    
-                                                <a href="/2019/11/09/Photo/" rel="prev">
+                                        <div class="post-nepre full previous">
+                                            
+                                                <a href="/2019/11/07/Web/" rel="prev">
                                                     <div class="background">
-                                                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJE154.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJE154.jpg">
+                                                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
                                                     </div>
                                                     <span class="label">
               Previous Post</span>
                                                     <div class="info">
                                                         <h3>
-                                                            秋日一游
+                                                            Website Recommendation
                                                         </h3>
                                                         <hr>
                                                     </div>
@@ -574,24 +572,6 @@
                                         </div>
                                         
                                             
-                                                
-                                                    <div class="post-nepre half next">
-                                                        
-                                                                    <a href="/2019/11/07/Web/" rel="next">
-                                                                        <div class="background">
-                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
-                                                                        </div>
-                                                                        <span class="label">
-              Next Post</span>
-                                                                        <div class="info">
-                                                                            <h3>
-                                                                                Website Recommendation
-                                                                            </h3>
-                                                                            <hr>
-                                                                        </div>
-                                                                    </a>
-                                                            </div>
-                                                            
                     </section>
                     
 <div id="vcomments"></div>
