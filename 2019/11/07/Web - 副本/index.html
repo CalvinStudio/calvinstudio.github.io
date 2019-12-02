@@ -403,14 +403,128 @@
                         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
                         
                                 <div class="entry-content">
-                                    <p><strong><em>This is a collection of several tool sites in my collection:</em></strong></p>
-<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><p><a href="https://app.xunjiepdf.com/" target="_blank" rel="noopener">迅捷PDF转换器</a></p>
-<h2 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h2><p><a href="https://ww2.mathworks.cn/matlabcentral/fileexchange/" target="_blank" rel="noopener">MATLAB File Exchange</a><br><a href="http://www.codesoso.com/default.aspx" target="_blank" rel="noopener">源码搜搜</a></p>
-<h2 id="办公资源"><a href="#办公资源" class="headerlink" title="办公资源"></a>办公资源</h2><p><a href="http://www.officeplus.cn/Template/Home.shtml" target="_blank" rel="noopener">OfficePLUS</a></p>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><a href="https://www.vcg.com/" target="_blank" rel="noopener">VCG视觉中国</a></p>
-<h2 id="网盘下载"><a href="#网盘下载" class="headerlink" title="网盘下载"></a>网盘下载</h2><p><a href="http://m.pansoso.com/" target="_blank" rel="noopener">PanSoso</a></p>
-<h2 id="文献下载"><a href="#文献下载" class="headerlink" title="文献下载"></a>文献下载</h2><p><a href="https://sci-hub.se/" target="_blank" rel="noopener">SCI-HUB</a></p>
-<p><a href="https://calvincw.gitee.io/" target="_blank" rel="noopener">SdsdsB</a></p>
+                                    <h2 id="2D-Array"><a href="#2D-Array" class="headerlink" title="2D Array"></a>2D Array</h2><pre><code class="cpp">float **TwoArrayAlloc(int r, int c) // 分配二维内存数组//
+{
+    float **p;
+    p = (float **)calloc(r, sizeof(float *));  //第一维
+    for (int i = 0; i&lt;r; i++)
+    {
+        p[i] = (float *)calloc(c, sizeof(float *));  //第二维
+    }
+    return(p);
+}
+</code></pre>
+<pre><code class="cpp">void TwoArrayFree(float **x)
+{
+    free(x[0]);
+    free(x);
+}
+</code></pre>
+<pre><code class="cpp">float Min(float **p, int nx, int nz) //二维数组中最小值//
+{
+    float min;
+    int i, j;
+    min = p[0][0];
+    for (i = 0; i&lt;nz; i++)
+    {
+        for (j = 0; j&lt;nx; j++)
+        {
+            if (min&gt;p[i][j])
+            {
+                min = p[i][j];
+            }
+        }
+    }
+    return min;
+}
+</code></pre>
+<pre><code class="cpp">float Max(float **p, int nx, int nz) //二维数组中最大值//
+{
+    float max;
+    int i, j;
+    max = p[0][0];
+    for (i = 0; i&lt;nz; i++)
+    {
+        for (j = 0; j&lt;nx; j++)
+        {
+            if (max&lt;p[i][j])
+            {
+                max = p[i][j];
+            }
+        }
+    }
+    return max;
+}
+</code></pre>
+<h2 id="3D-Array"><a href="#3D-Array" class="headerlink" title="3D Array"></a>3D Array</h2><pre><code class="cpp">float ***ThreeArrayAlloc(int l, int m, int n) // 分配三维内存数组//
+{
+    //int l,m,n;  //三维的长度，假设已知
+    float ***p;
+    int i, j;
+    p = (float ***)calloc(l, sizeof(float **));  //第一维
+    for (i = 0; i&lt;l; i++)
+    {
+        p[i] = (float **)calloc(m, sizeof(float *));  //第二维
+        for (j = 0; j&lt;m; j++)
+            p[i][j] = (float *)calloc(n, sizeof(float));  //第三维
+    }
+    return(p);
+}
+</code></pre>
+<pre><code class="cpp">void ThreeArrayFree(float ***p)
+{
+    free(p[0][0]);  //第三维     
+    free(p[0]);   //第二维
+    free(p);  //第一维
+}
+
+</code></pre>
+<pre><code class="cpp">float Min(float ***p, int nx, int ny, int nz)
+{
+    float min;
+    min = p[0][0][0];
+    for (int i = 0; i&lt;nz; i++)
+        for (int j = 0; j&lt;ny; j++)
+            for (int k = 0; k&lt;nx; k++)
+            {
+                if (min&gt;p[i][j][k])
+                {
+                    min = p[i][j][k];
+                }
+            }
+    return min;
+}
+</code></pre>
+<pre><code class="cpp">float Max(float ***p, int nx, int ny, int nz)
+{
+    float max;
+    max = p[0][0][0];
+    for (int i = 0; i&lt;nz; i++)
+        for (int j = 0; j&lt;ny; j++)
+            for (int k = 0; k&lt;nx; k++)
+            {
+                if (max&lt;p[i][j][k])
+                {
+                    max = p[i][j][k];
+                }
+            }
+    return max;
+}
+</code></pre>
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre><code class="cpp">void sort(float *array, int n) //一维数组排序算法//
+{
+    int i, j, k;
+    float t;
+    for (i = 0; i&lt;n - 1; i++)
+    {
+        k = i;
+        for (j = i + 1; j&lt;n; j++)
+            if (array[j]&lt;array[k])
+                k = j;
+        t = array[k]; array[k] = array[i]; array[i] = t;
+    }
+}
+</code></pre>
 <hr>
 
                                 </div>
@@ -442,17 +556,17 @@
                     <section class="post-squares nextprev">
                         
                             
-                                        <div class="post-nepre full previous">
-                                            
-                                                <a href="/2019/11/07/Web/" rel="prev">
+                                <div class="post-nepre half previous">
+                                    
+                                                <a href="/2019/11/09/Photo/" rel="prev">
                                                     <div class="background">
-                                                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
+                                                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJE154.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJE154.jpg">
                                                     </div>
                                                     <span class="label">
               Previous Post</span>
                                                     <div class="info">
                                                         <h3>
-                                                            Website Recommendation
+                                                            秋日一游
                                                         </h3>
                                                         <hr>
                                                     </div>
@@ -460,6 +574,24 @@
                                         </div>
                                         
                                             
+                                                
+                                                    <div class="post-nepre half next">
+                                                        
+                                                                    <a href="/2019/11/07/Web/" rel="next">
+                                                                        <div class="background">
+                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
+                                                                        </div>
+                                                                        <span class="label">
+              Next Post</span>
+                                                                        <div class="info">
+                                                                            <h3>
+                                                                                Website Recommendation
+                                                                            </h3>
+                                                                            <hr>
+                                                                        </div>
+                                                                    </a>
+                                                            </div>
+                                                            
                     </section>
                     
 <div id="vcomments"></div>
@@ -573,9 +705,9 @@
 <script type="text/javascript">
 /* <![CDATA[ */
 if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-  var Poi = {"pjax":"1","movies":{"url": "","name":"","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+  var Poi = {"pjax":"1","movies":{"url": "https://dev.tencent.com/u/calvincw/p/calvincw/attachment/default/preview/5988897.mp4","name":"5988897.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
 } else {
-  var Poi = {"pjax":"1","movies":{"url": "","name":"","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+  var Poi = {"pjax":"1","movies":{"url": "https://dev.tencent.com/u/calvincw/p/calvincw/attachment/default/preview/5988897.mp4","name":"5988897.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
 }
 /* ]]> */
 
