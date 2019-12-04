@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Category: 生活 | CALVIN</title>
+  <title itemprop="name">排序算法(上) | CALVIN</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -33,7 +33,7 @@
   mashiro_option.email_name = "";
   mashiro_option.cookie_version_control = "";
   mashiro_option.qzone_autocomplete = false;
-  mashiro_option.site_name = "CALVIN😎♾️🎶";
+  mashiro_option.site_name = "CWCODE😎♾️🎶";
   mashiro_option.author_name = "😎♾️🎶";
   mashiro_option.site_url = "https://calvincw.com";
   mashiro_option.v_appId = "pGJkhG8G9AgFrtqJUTzrI5nv-gzGzoHsz";
@@ -167,7 +167,7 @@
       <span class="site-title">
         <span class="logolink moe-mashiro">
           <a href="/">
-            <span class="sakurasono">CALVIN</span>
+            <span class="sakurasono">CWCODE</span>
             <span class="shironeko">😎♾️🎶</span>
           </a>
         </span>
@@ -366,105 +366,519 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/writing.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-  </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">生活</h1>
-    <span class="cat-des">
-      <p>live</p>
-    </span>
-  </header>
-</div>
-<div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/11/09/Photo/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+
+    <div class="pattern-center single-center">
+        <!-- 有配图默认渲染第一张 -->
+        <div class="pattern-attachment-img lazyload" style="background-image: url(https://s2.ax1x.com/2019/12/04/Q18uG9.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
         </div>
-        <img width="150" height="150" src="https://s2.ax1x.com/2019/11/13/MJE154.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
+        <header class="pattern-header single-header">
+            <h1 class="entry-title">
+                排序算法(上)
+            </h1>
+            <p class="entry-census">
+                <span>
+          <a href="">
+            <img src="/img/avatar.png">
+          </a>
+        </span>
+                <span>
+          <a href="">Calvin</a>
+        </span>
+                <span class="bull">
+        ·</span>
+                2019-11-7<span class="bull">
+        ·</span>
+                    <span id="busuanzi_value_page_pv"></span>次阅读</p>
+        </header>
     </div>
-    <h1 class="entry-title">
-    <a href="/2019/11/09/Photo/">
-    秋日一游</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-11-9</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/11/09/Photo/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
     
-  </div>
-</div>
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+                        <div class="toc"></div>
+                        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+                        
+                                <div class="entry-content">
+                                    <h2 id="超详细十大经典排序算法总结"><a href="#超详细十大经典排序算法总结" class="headerlink" title="超详细十大经典排序算法总结"></a>超详细十大经典排序算法总结</h2><h3 id="排序算法说明"><a href="#排序算法说明" class="headerlink" title="排序算法说明"></a>排序算法说明</h3><ul>
+<li>0.1排序的定义<br> 对一序列对象根据某个关键字进行排序。</li>
+<li><p>0.2术语说明稳定</p>
+<ul>
+<li>如果a原本在b前面，而a=b，排序之后a仍然在b的前面；</li>
+<li>不稳定：如果a原本在b的前面，而a=b，排序之后a可能会出现在b的后面；</li>
+<li>内排序：所有排序操作都在内存中完成；</li>
+<li>外排序：由于数据太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行；</li>
+<li>时间复杂度 ：一个算法执行所耗费的时间。</li>
+<li>空间复杂度 ：运行完一个程序所需内存的大小。</li>
+</ul>
+</li>
+<li><p>0.3 算法总结</p>
+</li>
+<li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzMwNDMxNjgtMTg2NzgxNzg2OS5wbmc?x-oss-process=image/format.png" alt></p>
+</li>
+<li><p>图片名词解释：</p>
+<ul>
+<li>n: 数据规模</li>
+<li>k: “桶”的个数</li>
+<li>In-place: 占用常数内存，不占用额外内存- Out-place: 占用额外内存</li>
+</ul>
+</li>
+<li>0.5 算法分类</li>
+<li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzMyMjA2MzctMTA1NTA4ODExOC5wbmc?x-oss-process=image/format,png" alt></p>
+</li>
+<li><p>0.6 比较和非比较的区别<br>  常见的—快速排序、归并排序、堆排序、冒泡排序—等属于比较排序。在排序的最终结果里，元素之间的次序依赖于它们之间的比较。每个数都必须和其他数进行比较，才能确定自己的位置。</p>
+<p>  在冒泡排序之类的排序中，问题规模为n，又因为需要比较n次，所以平均时间复杂度为O(n²)。在归并排序、快速排序之类的排序中，问题规模通过分治法消减为logN次，所以时间复杂度平均O(nlogn)。</p>
+<p>  比较排序的优势是，适用于各种规模的数据，也不在乎数据的分布，都能进行排序。可以说，比较排序适用于一切需要排序的情况。</p>
+<p>  计数排序、基数排序、桶排序则属于非比较排序 。非比较排序是通过确定每个元素之前，应该有多少个元素来排序。针对数组arr，计算arr[i]之前有多少个元素，则唯一确定了arr[i]在排序后数组中的位置 。</p>
+<p>  非比较排序只要确定每个元素之前的已有的元素个数即可，所有一次遍历即可解决。算法时间复杂度O(n)。</p>
+<p>  非比较排序时间复杂度底，但由于非比较排序需要占用空间来确定唯一位置。所以对数据规模和数据分布有一定的要求。</p>
+</li>
+</ul>
+<h3 id="1、冒泡排序（Bubble-Sort）"><a href="#1、冒泡排序（Bubble-Sort）" class="headerlink" title="1、冒泡排序（Bubble Sort）"></a>1、冒泡排序（Bubble Sort）</h3><p>冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<ul>
+<li><p>1.1 算法描述</p>
+<ul>
+<li>步骤1: 比较相邻的元素。如果第一个比第二个大，就交换它们两个；</li>
+<li>步骤2: 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素应该会是最大的数；</li>
+<li>步骤3: 针对所有的元素重复以上的步骤，除了最后一个；- 步骤4: 重复步骤1~3，直到排序完成。</li>
+</ul>
+</li>
+<li><p>1.2 动图演示</p>
+</li>
+<li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMjMyMzg0NDktMjE0NjE2OTE5Ny5naWY" alt></p>
+</li>
+<li><p>1.3 代码实现</p>
+</li>
+<li><pre><code class="lang-java">   * 冒泡排序
+   *
+   * @param array
+   * @return
+  public static int[] bubbleSort(int[] array) {
+      if (array.length == 0)
+          return array;
+      for (int i = 0; i &amp;lt; array.length; i++)
+          for (int j = 0; j &amp;lt; array.length - 1 - i; j++)
+              if (array[j + 1] &amp;lt; array[j]) {
+                  int temp = array[j + 1];
+                  array[j + 1] = array[j];
+                  array[j] = temp;
+              }
+      return array;
+  }
+</code></pre>
+<ul>
+<li><pre><code class="lang-cpp">void bubble_sort (int a[], int n) {
+int i, j, lastSwap, tmp;
+for (j=n-1; j&gt;0; j=lastSwap) {
+    lastSwap=0;     //每一轮要初始化为0，防止某一轮未发生交换，lastSwap保留上一轮的值进入死循环
+    for (i=0; i&lt;j; i++) {
+        if (a[i] &gt; a[i+1]) {
+            tmp=a[i];
+            a[i]=a[i+1];
+            a[i+1]=tmp;
+　　　　　　　　   //最后一次交换位置的坐标
+            lastSwap = i;
+        }
+    }
+}
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>1.4 算法分析</p>
+<ul>
+<li>最佳情况：T(n) = O(n)</li>
+<li>最差情况：T(n) = O(n2)</li>
+<li>平均情况：T(n) = O(n2)</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、选择排序（Selection-Sort）"><a href="#2、选择排序（Selection-Sort）" class="headerlink" title="2、选择排序（Selection Sort）"></a>2、选择排序（Selection Sort）</h3><p>选择排序是表现最稳定的排序算法之一，因为无论什么数据进去都是O(n2)的时间复杂度，所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。理论上讲，选择排序可能也是平时排序一般人想到的最多的排序方法了吧。</p>
+<p>选择排序(Selection-sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<ul>
+<li><p>2.1 算法描述<br>n个记录的直接选择排序可经过n-1趟直接选择排序得到有序结果。具体算法描述如下：</p>
+<ul>
+<li>步骤1：初始状态：无序区为R[1…n]，有序区为空；</li>
+<li>步骤2：第i趟排序(i=1,2,3…n-1)开始时，当前有序区和无序区分别为R[1…i-1]和R(i…n）。该趟排序从当前无序区中-选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1…i]和R[i+1…n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；</li>
+<li>步骤3：n-1趟结束，数组有序化了。</li>
+</ul>
+</li>
+<li><p>2.2 动图演示<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMjQ3MTk1OTAtMTQzMzIxOTgyNC5naWY" alt></p>
+</li>
+<li><p>2.3 代码实现</p>
+</li>
+<li><pre><code class="lang-java">   * 选择排序
+   * @param array
+   * @return
+  public static int[] selectionSort(int[] array) {
+      if (array.length == 0)
+          return array;
+      for (int i = 0; i &amp;lt; array.length; i++) {
+          int minIndex = i;
+          for (int j = i; j &amp;lt; array.length; j++) {
+              if (array[j] &amp;lt; array[minIndex]) //找到最小的数
+                  minIndex = j; //将最小数的索引保存
+          }
+          int temp = array[minIndex];
+          array[minIndex] = array[i];
+          array[i] = temp;
+      }
+      return array;
+  }
+</code></pre>
+<ul>
+<li><pre><code class="lang-cpp">void selection_sort (int a[], int n) {
+int i,j,pos,tmp;
+for (i=0; i&lt;n-1; i++) {
+　　　　  //寻找最小值的下标
+    for (pos=i, j=i+1; j&lt;n; j++)
+        if (a[pos]&gt;a[j])
+            pos=j;
+    if (pos != i) {
+        tmp=a[i];
+        a[i]=a[pos];
+        a[pos]=tmp;
+    }
+}
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>2.4 算法分析</p>
+<ul>
+<li>最佳情况：T(n) = O(n2)</li>
+<li>最差情况：T(n) = O(n2)</li>
+<li>平均情况：T(n) = O(n2)</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、插入排序（Insertion-Sort）"><a href="#3、插入排序（Insertion-Sort）" class="headerlink" title="3、插入排序（Insertion Sort）"></a>3、插入排序（Insertion Sort）</h3><p>插入排序（Insertion-Sort） 的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</p>
+<ul>
+<li><p>3.1 算法描述<br>  一般来说，插入排序都采用in-place在数组上实现。具体算法描述如下：</p>
+<ul>
+<li>步骤1: 从第一个元素开始，该元素可以认为已经被排序；</li>
+<li>步骤2: 取出下一个元素，在已经排序的元素序列中从后向前扫描；</li>
+<li>步骤3: 如果该元素（已排序）大于新元素，将该元素移到下一位置；</li>
+<li>步骤4: 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；</li>
+<li>步骤5: 将新元素插入到该位置后；</li>
+<li>步骤6: 重复步骤2~5。</li>
+</ul>
+</li>
+<li><p>3.2 动图演示<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMjU2NDUyNzctMTE1MTEwMDAwMC5naWY" alt></p>
+</li>
+<li><p>3.3 代码实现</p>
+</li>
+<li><pre><code class="lang-java">   * 插入排序
+   * @param array
+   * @return
+  public static int[] insertionSort(int[] array) {
+      if (array.length == 0)
+          return array;
+      int current;
+      for (int i = 0; i &amp;lt; array.length - 1; i++) {
+          current = array[i + 1];
+          int preIndex = i;
+          while (preIndex &amp;gt;= 0 &amp;amp;&amp;amp; current &amp;lt; array[preIndex]) {
+              array[preIndex + 1] = array[preIndex];
+              preIndex--;
+          }
+          array[preIndex + 1] = current;
+      }
+      return array;
+  }
+</code></pre>
+<ul>
+<li><pre><code class="lang-cpp">void insertion_sort (int a[], int n) {
+int i,j,v;
+for (i=1; i&lt;n; i++) {
+　　　　  //如果第i个元素小于第j个，则第j个向后移动
+    for (v=a[i], j=i-1; j&gt;=0&amp;&amp;v&lt;a[j]; j--)
+        a[j+1]=a[j];
+    a[j+1]=v;
+}
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>3.4 算法分析<ul>
+<li>最佳情况：T(n) = O(n)</li>
+<li>最坏情况：T(n) = O(n2)</li>
+<li>平均情况：T(n) = O(n2)</li>
+</ul>
+</li>
+</ul>
+<h3 id="4、希尔排序（Shell-Sort）"><a href="#4、希尔排序（Shell-Sort）" class="headerlink" title="4、希尔排序（Shell Sort）"></a>4、希尔排序（Shell Sort）</h3><p>希尔排序是希尔（Donald Shell） 于1959年提出的一种排序算法。希尔排序也是一种插入排序，它是简单插入排序经过改进之后的一个更高效的版本，也称为缩小增量排序，同时该算法是冲破O(n2）的第一批算法之一。它与插入排序的不同之处在于，它会优先比较距离较远的元素。希尔排序又叫缩小增量排序。</p>
+<p>希尔排序是把记录按下表的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。</p>
+<ul>
+<li>4.1 算法描述<br>我们来看下希尔排序的基本步骤，在此我们选择增量gap=length/2，缩小增量继续以gap = gap/2的方式，这种增量选择我们可以用一个序列来表示，{n/2,(n/2)/2…1}，称为增量序列。希尔排序的增量序列的选择与证明是个数学难题，我们选择的这个增量序列是比较常用的，也是希尔建议的增量，称为希尔增量，但其实这个增量序列不是最优的。此处我们做示例使用希尔增量。</li>
+</ul>
+<p>先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，具体算法描述：</p>
+<ul>
+<li>步骤1：选择一个增量序列t1，t2，…，tk，其中ti&gt;tj，tk=1； </li>
+<li>步骤2：按增量序列个数k，对序列进行k 趟排序； </li>
+<li>步骤3：每趟排序，根据对应的增量ti，将待排序列分割成若干长度为m 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。</li>
+</ul>
+<ul>
+<li><p>4.2 过程演示<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTE5MjY5OS8yMDE4MDMvMTE5MjY5OS0yMDE4MDMxOTA5NDExNjA0MC0xNjM4NzY2MjcxLnBuZw?x-oss-process=image/format,png" alt></p>
+</li>
+<li><p>4.3 代码实现</p>
+</li>
+<li><pre><code class="lang-java">/**
+   * 希尔排序
+   *
+   * @param array
+   * @return
+   */
+  public static int[] ShellSort(int[] array) {
+      int len = array.length;
+      int temp, gap = len / 2;
+      while (gap &amp;gt; 0) {
+          for (int i = gap; i &amp;lt; len; i++) {
+              temp = array[i];
+              int preIndex = i - gap;
+              while (preIndex &amp;gt;= 0 &amp;amp;&amp;amp; array[preIndex] &amp;gt; temp) {
+                  array[preIndex + gap] = array[preIndex];
+                  preIndex -= gap;
+              }
+              array[preIndex + gap] = temp;
+          }
+          gap /= 2;
+      }
+      return array;
+  }
+</code></pre>
+<ul>
+<li><pre><code class="lang-cpp">void shell_sort(int a[], int n)
+{
+int d, i, j, temp; //d为增量
+for(d = n/2;d &gt;= 1;d = d/2) //增量递减到1使完成排序
+{
+    for(i = d; i &lt; n;i++)   //插入排序的一轮
+    {
+        temp = a[i];
+        for(j = i - d;(j &gt;= 0) &amp;&amp; (a[j] &gt; temp);j = j-d)
+        {
+            a[j + d] = a[j];
+        }
+    a[j + d] = temp;
+    }
+}
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>4.4 算法分析<ul>
+<li>最佳情况：T(n) = O(nlog2 n)</li>
+<li>最坏情况：T(n) = O(nlog2 n)</li>
+<li>平均情况：T(n) =O(nlog2n)</li>
+</ul>
+</li>
+</ul>
+<h3 id="5、归并排序（Merge-Sort）"><a href="#5、归并排序（Merge-Sort）" class="headerlink" title="5、归并排序（Merge Sort）"></a>5、归并排序（Merge Sort）</h3><p>和选择排序一样，归并排序的性能不受输入数据的影响，但表现比选择排序好的多，因为始终都是O(n log n）的时间复杂度。代价是需要额外的内存空间。</p>
+<p>归并排序 是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。归并排序是一种稳定的排序方法。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。</p>
+<ul>
+<li>5.1 算法描述<ul>
+<li>步骤1：把长度为n的输入序列分成两个长度为n/2的子序列；- 步骤2：对这两个子序列分别采用归并排序； </li>
+<li>步骤3：将两个排序好的子序列合并成一个最终的排序序列。</li>
+</ul>
+</li>
+<li><p>5.2 动图演示<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzA1NTcwNDMtMzczNzUwMTAuZ2lm" alt></p>
+</li>
+<li><p>5.3 代码实现</p>
+</li>
+<li><pre><code class="lang-java">/**
+   * 归并排序
+   *
+   * @param array
+   * @return
+   */
+  public static int[] MergeSort(int[] array) {
+      if (array.length &amp;lt; 2) return array;
+      int mid = array.length / 2;
+      int[] left = Arrays.copyOfRange(array, 0, mid);
+      int[] right = Arrays.copyOfRange(array, mid, array.length);
+      return merge(MergeSort(left), MergeSort(right));
+  }
+  /**
+   * 归并排序——将两段排序好的数组结合成一个排序数组
+   *
+   * @param left
+   * @param right
+   * @return
+   */
+  public static int[] merge(int[] left, int[] right) {
+      int[] result = new int[left.length + right.length];
+      for (int index = 0, i = 0, j = 0; index &amp;lt; result.length; index++) {
+          if (i &amp;gt;= left.length)
+              result[index] = right[j++];
+          else if (j &amp;gt;= right.length)
+              result[index] = left[i++];
+          else if (left[i] &amp;gt; right[j])
+              result[index] = right[j++];
+          else
+              result[index] = left[i++];
+      }
+      return result;
+  }
+</code></pre>
+<ul>
+<li><pre><code class="lang-cpp">void mergearray(int a[], int first, int mid, int last, int temp[])
+{
+int i = first, j = mid + 1;
+int m = mid,   n = last;
+int k = 0;
 
-<!-- 
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/11/09/Photo/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://s2.ax1x.com/2019/11/13/MJE154.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2019/11/09/Photo/">
-    秋日一游</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-11-9</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/11/09/Photo/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+while (i &lt;= m &amp;&amp; j &lt;= n)
+{
+    if (a[i] &lt;= a[j])
+        temp[k++] = a[i++];
+    else
+        temp[k++] = a[j++];
+}
 
- -->
+while (i &lt;= m)
+    temp[k++] = a[i++];
+
+while (j &lt;= n)
+    temp[k++] = a[j++];
+
+for (i = 0; i &lt; k; i++)
+    a[first + i] = temp[i];
+}
+void merge_sort(int a[], int first, int last, int temp[])
+{
+if (first &lt; last)
+{
+    int mid = (first + last) / 2;
+    merge_sort(a, first, mid, temp);    //左边有序
+    merge_sort(a, mid + 1, last, temp); //右边有序
+    mergearray(a, first, mid, last, temp); //再将二个有序数列合并
+}
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li>5.4 算法分析<ul>
+<li>最佳情况：T(n) = O(n)</li>
+<li>最差情况：T(n) = O(nlogn)</li>
+<li>平均情况：T(n) = O(nlogn)</li>
+</ul>
+</li>
+</ul>
+
+                                </div>
+                                <!-- .entry-content -->
+                                <div class="single-reward">
+                                    <div class="reward-open">赏
+                                        <div class="reward-main">
+                                            <ul class="reward-row">
+                                                <li class="alipay-code"><img src="/img/AliPay.jpg"></li>
+                                                <li class="wechat-code"><img src="/img/WeChatf.jpg"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+                                <footer class="post-footer">
+                                    <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+                                    <div class="post-tags">
+                                    </div>
+                                    <div class="post-share">
+                                        <div class="social-share sharehidden share-component"></div>
+                                        <i class="iconfont show-share icon-forward"></i>
+                                    </div>
+                                </footer>
+                                <!-- .entry-footer -->
+                    </article>
+                    <!-- #post-## -->
+                    <div class="toc" style="background: none;"></div>
+                    <section class="post-squares nextprev">
+                        
+                            
+                                <div class="post-nepre half previous">
+                                    
+                                                <a href="/2019/11/07/Array/" rel="prev">
+                                                    <div class="background">
+                                                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
+                                                    </div>
+                                                    <span class="label">
+              Previous Post</span>
+                                                    <div class="info">
+                                                        <h3>
+                                                            多维数组内存分配与释放
+                                                        </h3>
+                                                        <hr>
+                                                    </div>
+                                                </a>
+                                        </div>
+                                        
+                                            
+                                                
+                                                    <div class="post-nepre half next">
+                                                        
+                                                                    <a href="/2019/11/07/Web/" rel="next">
+                                                                        <div class="background">
+                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
+                                                                        </div>
+                                                                        <span class="label">
+              Next Post</span>
+                                                                        <div class="info">
+                                                                            <h3>
+                                                                                网站推荐
+                                                                            </h3>
+                                                                            <hr>
+                                                                        </div>
+                                                                    </a>
+                                                            </div>
+                                                            
+                    </section>
+                    
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "pGJkhG8G9AgFrtqJUTzrI5nv-gzGzoHsz",
+        appKey: "f73Me38CkG9kjk9zzXm8TsWt",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+                        <section class="author-profile">
+                            <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                <a href="" class="profile gravatar"><img src="/img/avatar.png" itemprop="image" alt="Calvin" height="70" width="70"></a>
+                                <div class="meta">
+                                    <span class="title">Author</span>
+                                    <h3 itemprop="name">
+                                        <a href="" itemprop="url" rel="author">
+                                            Calvin
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <p><i class="iconfont icon-write"></i>
+                                
+                            </p>
+                        </section>
+                </main>
+                <!-- #main -->
+                </div>
+                <!-- #primary -->
+                </div>
+
+                
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
@@ -600,7 +1014,7 @@ $(document).ready(function() {
         <img src="/img/avatar.png">
     </div>
     <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">
-        CALVIN
+        CWCODE
             😎♾️🎶
     </p>
     <!-- <p style="text-align: center; word-spacing: 20px;">

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: 照片 | CALVIN</title>
+  <title itemprop="name">多维数组内存分配与释放 | CALVIN</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -33,7 +33,7 @@
   mashiro_option.email_name = "";
   mashiro_option.cookie_version_control = "";
   mashiro_option.qzone_autocomplete = false;
-  mashiro_option.site_name = "CALVIN😎♾️🎶";
+  mashiro_option.site_name = "CWCODE😎♾️🎶";
   mashiro_option.author_name = "😎♾️🎶";
   mashiro_option.site_url = "https://calvincw.com";
   mashiro_option.v_appId = "pGJkhG8G9AgFrtqJUTzrI5nv-gzGzoHsz";
@@ -167,7 +167,7 @@
       <span class="site-title">
         <span class="logolink moe-mashiro">
           <a href="/">
-            <span class="sakurasono">CALVIN</span>
+            <span class="sakurasono">CWCODE</span>
             <span class="shironeko">😎♾️🎶</span>
           </a>
         </span>
@@ -366,64 +366,270 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="照片.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-  </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">照片</h1>
-  </header>
-</div>
-<div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/11/09/Photo/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+
+    <div class="pattern-center single-center">
+        <!-- 有配图默认渲染第一张 -->
+        <div class="pattern-attachment-img lazyload" style="background-image: url(https://s2.ax1x.com/2019/12/04/Q18uG9.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
         </div>
-        <img width="150" height="150" src="https://s2.ax1x.com/2019/11/13/MJE154.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
+        <header class="pattern-header single-header">
+            <h1 class="entry-title">
+                多维数组内存分配与释放
+            </h1>
+            <p class="entry-census">
+                <span>
+          <a href="">
+            <img src="/img/avatar.png">
+          </a>
+        </span>
+                <span>
+          <a href="">Calvin</a>
+        </span>
+                <span class="bull">
+        ·</span>
+                2019-11-7<span class="bull">
+        ·</span>
+                    <span id="busuanzi_value_page_pv"></span>次阅读</p>
+        </header>
     </div>
-    <h1 class="entry-title">
-    <a href="/2019/11/09/Photo/">
-    秋日一游</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-11-9</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/11/09/Photo/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
     
-  </div>
-</div>
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+                        <div class="toc"></div>
+                        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+                        
+                                <div class="entry-content">
+                                    <h2 id="2D-Array"><a href="#2D-Array" class="headerlink" title="2D Array"></a>2D Array</h2><pre><code class="lang-cpp">float **TwoArrayAlloc(int r, int c) // 分配二维内存数组//
+{
+    float **p;
+    p = (float **)calloc(r, sizeof(float *));  //第一维
+    for (int i = 0; i&lt;r; i++)
+    {
+        p[i] = (float *)calloc(c, sizeof(float *));  //第二维
+    }
+    return(p);
+}
+</code></pre>
+<pre><code class="lang-cpp">void TwoArrayFree(float **x)
+{
+    free(x[0]);
+    free(x);
+}
+</code></pre>
+<pre><code class="lang-cpp">float Min(float **p, int nx, int nz) //二维数组中最小值//
+{
+    float min;
+    int i, j;
+    min = p[0][0];
+    for (i = 0; i&lt;nz; i++)
+    {
+        for (j = 0; j&lt;nx; j++)
+        {
+            if (min&gt;p[i][j])
+            {
+                min = p[i][j];
+            }
+        }
+    }
+    return min;
+}
+</code></pre>
+<pre><code class="lang-cpp">float Max(float **p, int nx, int nz) //二维数组中最大值//
+{
+    float max;
+    int i, j;
+    max = p[0][0];
+    for (i = 0; i&lt;nz; i++)
+    {
+        for (j = 0; j&lt;nx; j++)
+        {
+            if (max&lt;p[i][j])
+            {
+                max = p[i][j];
+            }
+        }
+    }
+    return max;
+}
+</code></pre>
+<h2 id="3D-Array"><a href="#3D-Array" class="headerlink" title="3D Array"></a>3D Array</h2><pre><code class="lang-cpp">float ***ThreeArrayAlloc(int l, int m, int n) // 分配三维内存数组//
+{
+    //int l,m,n;  //三维的长度，假设已知
+    float ***p;
+    int i, j;
+    p = (float ***)calloc(l, sizeof(float **));  //第一维
+    for (i = 0; i&lt;l; i++)
+    {
+        p[i] = (float **)calloc(m, sizeof(float *));  //第二维
+        for (j = 0; j&lt;m; j++)
+            p[i][j] = (float *)calloc(n, sizeof(float));  //第三维
+    }
+    return(p);
+}
+</code></pre>
+<pre><code class="lang-cpp">void ThreeArrayFree(float ***p)
+{
+    free(p[0][0]);  //第三维     
+    free(p[0]);   //第二维
+    free(p);  //第一维
+}
+</code></pre>
+<pre><code class="lang-cpp">float Min(float ***p, int nx, int ny, int nz)
+{
+    float min;
+    min = p[0][0][0];
+    for (int i = 0; i&lt;nz; i++)
+        for (int j = 0; j&lt;ny; j++)
+            for (int k = 0; k&lt;nx; k++)
+            {
+                if (min&gt;p[i][j][k])
+                {
+                    min = p[i][j][k];
+                }
+            }
+    return min;
+}
+</code></pre>
+<pre><code class="lang-cpp">float Max(float ***p, int nx, int ny, int nz)
+{
+    float max;
+    max = p[0][0][0];
+    for (int i = 0; i&lt;nz; i++)
+        for (int j = 0; j&lt;ny; j++)
+            for (int k = 0; k&lt;nx; k++)
+            {
+                if (max&lt;p[i][j][k])
+                {
+                    max = p[i][j][k];
+                }
+            }
+    return max;
+}
+</code></pre>
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre><code class="lang-cpp">void sort(float *array, int n) //一维数组排序算法//
+{
+    int i, j, k;
+    float t;
+    for (i = 0; i&lt;n - 1; i++)
+    {
+        k = i;
+        for (j = i + 1; j&lt;n; j++)
+            if (array[j]&lt;array[k])
+                k = j;
+        t = array[k]; array[k] = array[i]; array[i] = t;
+    }
+}
+</code></pre>
+
+                                </div>
+                                <!-- .entry-content -->
+                                <div class="single-reward">
+                                    <div class="reward-open">赏
+                                        <div class="reward-main">
+                                            <ul class="reward-row">
+                                                <li class="alipay-code"><img src="/img/AliPay.jpg"></li>
+                                                <li class="wechat-code"><img src="/img/WeChatf.jpg"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+                                <footer class="post-footer">
+                                    <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+                                    <div class="post-tags">
+                                    </div>
+                                    <div class="post-share">
+                                        <div class="social-share sharehidden share-component"></div>
+                                        <i class="iconfont show-share icon-forward"></i>
+                                    </div>
+                                </footer>
+                                <!-- .entry-footer -->
+                    </article>
+                    <!-- #post-## -->
+                    <div class="toc" style="background: none;"></div>
+                    <section class="post-squares nextprev">
+                        
+                            
+                                <div class="post-nepre half previous">
+                                    
+                                                <a href="/2019/11/07/Sort copy/" rel="prev">
+                                                    <div class="background">
+                                                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
+                                                    </div>
+                                                    <span class="label">
+              Previous Post</span>
+                                                    <div class="info">
+                                                        <h3>
+                                                            排序算法（下）
+                                                        </h3>
+                                                        <hr>
+                                                    </div>
+                                                </a>
+                                        </div>
+                                        
+                                            
+                                                
+                                                    <div class="post-nepre half next">
+                                                        
+                                                                    <a href="/2019/11/07/Sort/" rel="next">
+                                                                        <div class="background">
+                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
+                                                                        </div>
+                                                                        <span class="label">
+              Next Post</span>
+                                                                        <div class="info">
+                                                                            <h3>
+                                                                                排序算法(上)
+                                                                            </h3>
+                                                                            <hr>
+                                                                        </div>
+                                                                    </a>
+                                                            </div>
+                                                            
+                    </section>
+                    
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "pGJkhG8G9AgFrtqJUTzrI5nv-gzGzoHsz",
+        appKey: "f73Me38CkG9kjk9zzXm8TsWt",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+                        <section class="author-profile">
+                            <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                <a href="" class="profile gravatar"><img src="/img/avatar.png" itemprop="image" alt="Calvin" height="70" width="70"></a>
+                                <div class="meta">
+                                    <span class="title">Author</span>
+                                    <h3 itemprop="name">
+                                        <a href="" itemprop="url" rel="author">
+                                            Calvin
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <p><i class="iconfont icon-write"></i>
+                                
+                            </p>
+                        </section>
+                </main>
+                <!-- #main -->
+                </div>
+                <!-- #primary -->
+                </div>
+
+                
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
@@ -559,7 +765,7 @@ $(document).ready(function() {
         <img src="/img/avatar.png">
     </div>
     <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">
-        CALVIN
+        CWCODE
             😎♾️🎶
     </p>
     <!-- <p style="text-align: center; word-spacing: 20px;">
