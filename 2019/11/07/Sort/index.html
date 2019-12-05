@@ -469,25 +469,23 @@
       return array;
   }
 </code></pre>
-<ul>
+</li>
 <li><pre><code class="lang-cpp">void bubble_sort (int a[], int n) {
-int i, j, lastSwap, tmp;
-for (j=n-1; j&gt;0; j=lastSwap) {
-    lastSwap=0;     //每一轮要初始化为0，防止某一轮未发生交换，lastSwap保留上一轮的值进入死循环
-    for (i=0; i&lt;j; i++) {
-        if (a[i] &gt; a[i+1]) {
-            tmp=a[i];
-            a[i]=a[i+1];
-            a[i+1]=tmp;
+  int i, j, lastSwap, tmp;
+  for (j=n-1; j&gt;0; j=lastSwap) {
+      lastSwap=0;     //每一轮要初始化为0，防止某一轮未发生交换，lastSwap保留上一轮的值进入死循环
+      for (i=0; i&lt;j; i++) {
+          if (a[i] &gt; a[i+1]) {
+              tmp=a[i];
+              a[i]=a[i+1];
+              a[i+1]=tmp;
 　　　　　　　　   //最后一次交换位置的坐标
-            lastSwap = i;
-        }
-    }
-}
+              lastSwap = i;
+          }
+      }
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li><p>1.4 算法分析</p>
 <ul>
@@ -530,24 +528,22 @@ for (j=n-1; j&gt;0; j=lastSwap) {
       return array;
   }
 </code></pre>
-<ul>
+</li>
 <li><pre><code class="lang-cpp">void selection_sort (int a[], int n) {
-int i,j,pos,tmp;
-for (i=0; i&lt;n-1; i++) {
+  int i,j,pos,tmp;
+  for (i=0; i&lt;n-1; i++) {
 　　　　  //寻找最小值的下标
-    for (pos=i, j=i+1; j&lt;n; j++)
-        if (a[pos]&gt;a[j])
-            pos=j;
-    if (pos != i) {
-        tmp=a[i];
-        a[i]=a[pos];
-        a[pos]=tmp;
-    }
-}
+      for (pos=i, j=i+1; j&lt;n; j++)
+          if (a[pos]&gt;a[j])
+              pos=j;
+      if (pos != i) {
+          tmp=a[i];
+          a[i]=a[pos];
+          a[pos]=tmp;
+      }
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li><p>2.4 算法分析</p>
 <ul>
@@ -592,19 +588,17 @@ for (i=0; i&lt;n-1; i++) {
       return array;
   }
 </code></pre>
-<ul>
+</li>
 <li><pre><code class="lang-cpp">void insertion_sort (int a[], int n) {
-int i,j,v;
-for (i=1; i&lt;n; i++) {
+  int i,j,v;
+  for (i=1; i&lt;n; i++) {
 　　　　  //如果第i个元素小于第j个，则第j个向后移动
-    for (v=a[i], j=i-1; j&gt;=0&amp;&amp;v&lt;a[j]; j--)
-        a[j+1]=a[j];
-    a[j+1]=v;
-}
+      for (v=a[i], j=i-1; j&gt;=0&amp;&amp;v&lt;a[j]; j--)
+          a[j+1]=a[j];
+      a[j+1]=v;
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li>3.4 算法分析<ul>
 <li>最佳情况：T(n) = O(n)</li>
@@ -653,26 +647,24 @@ for (i=1; i&lt;n; i++) {
       return array;
   }
 </code></pre>
-<ul>
+</li>
 <li><pre><code class="lang-cpp">void shell_sort(int a[], int n)
 {
-int d, i, j, temp; //d为增量
-for(d = n/2;d &gt;= 1;d = d/2) //增量递减到1使完成排序
-{
-    for(i = d; i &lt; n;i++)   //插入排序的一轮
-    {
-        temp = a[i];
-        for(j = i - d;(j &gt;= 0) &amp;&amp; (a[j] &gt; temp);j = j-d)
-        {
-            a[j + d] = a[j];
-        }
-    a[j + d] = temp;
-    }
-}
+  int d, i, j, temp; //d为增量
+  for(d = n/2;d &gt;= 1;d = d/2) //增量递减到1使完成排序
+  {
+      for(i = d; i &lt; n;i++)   //插入排序的一轮
+      {
+          temp = a[i];
+          for(j = i - d;(j &gt;= 0) &amp;&amp; (a[j] &gt; temp);j = j-d)
+          {
+              a[j + d] = a[j];
+          }
+      a[j + d] = temp;
+      }
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li>4.4 算法分析<ul>
 <li>最佳情况：T(n) = O(nlog2 n)</li>
@@ -728,43 +720,41 @@ for(d = n/2;d &gt;= 1;d = d/2) //增量递减到1使完成排序
       return result;
   }
 </code></pre>
-<ul>
+</li>
 <li><pre><code class="lang-cpp">void mergearray(int a[], int first, int mid, int last, int temp[])
 {
-int i = first, j = mid + 1;
-int m = mid,   n = last;
-int k = 0;
+  int i = first, j = mid + 1;
+  int m = mid,   n = last;
+  int k = 0;
 
-while (i &lt;= m &amp;&amp; j &lt;= n)
-{
-    if (a[i] &lt;= a[j])
-        temp[k++] = a[i++];
-    else
-        temp[k++] = a[j++];
-}
+  while (i &lt;= m &amp;&amp; j &lt;= n)
+  {
+      if (a[i] &lt;= a[j])
+          temp[k++] = a[i++];
+      else
+          temp[k++] = a[j++];
+  }
 
-while (i &lt;= m)
-    temp[k++] = a[i++];
+  while (i &lt;= m)
+      temp[k++] = a[i++];
 
-while (j &lt;= n)
-    temp[k++] = a[j++];
+  while (j &lt;= n)
+      temp[k++] = a[j++];
 
-for (i = 0; i &lt; k; i++)
-    a[first + i] = temp[i];
+  for (i = 0; i &lt; k; i++)
+      a[first + i] = temp[i];
 }
 void merge_sort(int a[], int first, int last, int temp[])
 {
-if (first &lt; last)
-{
-    int mid = (first + last) / 2;
-    merge_sort(a, first, mid, temp);    //左边有序
-    merge_sort(a, mid + 1, last, temp); //右边有序
-    mergearray(a, first, mid, last, temp); //再将二个有序数列合并
-}
+  if (first &lt; last)
+  {
+      int mid = (first + last) / 2;
+      merge_sort(a, first, mid, temp);    //左边有序
+      merge_sort(a, mid + 1, last, temp); //右边有序
+      mergearray(a, first, mid, last, temp); //再将二个有序数列合并
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li>5.4 算法分析<ul>
 <li>最佳情况：T(n) = O(n)</li>
@@ -805,7 +795,7 @@ if (first &lt; last)
                             
                                 <div class="post-nepre half previous">
                                     
-                                                <a href="/2019/11/07/Array/" rel="prev">
+                                                <a href="/2019/11/07/Sort copy/" rel="prev">
                                                     <div class="background">
                                                         <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
                                                     </div>
@@ -813,7 +803,7 @@ if (first &lt; last)
               Previous Post</span>
                                                     <div class="info">
                                                         <h3>
-                                                            多维数组内存分配与释放
+                                                            排序算法（下）
                                                         </h3>
                                                         <hr>
                                                     </div>
@@ -824,15 +814,15 @@ if (first &lt; last)
                                                 
                                                     <div class="post-nepre half next">
                                                         
-                                                                    <a href="/2019/11/07/Web/" rel="next">
+                                                                    <a href="/2019/11/07/Array/" rel="next">
                                                                         <div class="background">
-                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
+                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
                                                                         </div>
                                                                         <span class="label">
               Next Post</span>
                                                                         <div class="info">
                                                                             <h3>
-                                                                                网站推荐
+                                                                                多维数组内存分配与释放
                                                                             </h3>
                                                                             <hr>
                                                                         </div>
