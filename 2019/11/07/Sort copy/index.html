@@ -417,79 +417,77 @@
 <li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzA5MzYzNzEtMTQxMzUyMzQxMi5naWY" alt></p>
 </li>
 <li><p>6.3 代码实现</p>
-<ul>
+</li>
 <li><pre><code class="lang-java">/**
- * 快速排序方法
- * @param array
- * @param start
- * @param end
- * @return
- */
-public static int[] QuickSort(int[] array, int start, int end) {
-    if (array.length &amp;lt; 1 || start &amp;lt; 0 || end &amp;gt;= array.length || start &amp;gt; end) return null;
-    int smallIndex = partition(array, start, end);
-    if (smallIndex &amp;gt; start)
-        QuickSort(array, start, smallIndex - 1);
-    if (smallIndex &amp;lt; end)
-        QuickSort(array, smallIndex + 1, end);
-    return array;
-}
-/**
- * 快速排序算法——partition
- * @param array
- * @param start
- * @param end
- * @return
- */
-public static int partition(int[] array, int start, int end) {
-    int pivot = (int) (start + Math.random() * (end - start + 1));
-    int smallIndex = start - 1;
-    swap(array, pivot, end);
-    for (int i = start; i &amp;lt;= end; i++)
-        if (array[i] &amp;lt;= array[end]) {
-            smallIndex++;
-            if (i &amp;gt; smallIndex)
-                swap(array, i, smallIndex);
-        }
-    return smallIndex;
-}
+   * 快速排序方法
+   * @param array
+   * @param start
+   * @param end
+   * @return
+   */
+  public static int[] QuickSort(int[] array, int start, int end) {
+      if (array.length &amp;lt; 1 || start &amp;lt; 0 || end &amp;gt;= array.length || start &amp;gt; end) return null;
+      int smallIndex = partition(array, start, end);
+      if (smallIndex &amp;gt; start)
+          QuickSort(array, start, smallIndex - 1);
+      if (smallIndex &amp;lt; end)
+          QuickSort(array, smallIndex + 1, end);
+      return array;
+  }
+  /**
+   * 快速排序算法——partition
+   * @param array
+   * @param start
+   * @param end
+   * @return
+   */
+  public static int partition(int[] array, int start, int end) {
+      int pivot = (int) (start + Math.random() * (end - start + 1));
+      int smallIndex = start - 1;
+      swap(array, pivot, end);
+      for (int i = start; i &amp;lt;= end; i++)
+          if (array[i] &amp;lt;= array[end]) {
+              smallIndex++;
+              if (i &amp;gt; smallIndex)
+                  swap(array, i, smallIndex);
+          }
+      return smallIndex;
+  }
 
-/**
- * 交换数组内两个元素
- * @param array
- * @param i
- * @param j
- */
-public static void swap(int[] array, int i, int j) {
-    int temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-}
+  /**
+   * 交换数组内两个元素
+   * @param array
+   * @param i
+   * @param j
+   */
+  public static void swap(int[] array, int i, int j) {
+      int temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+  }
 </code></pre>
 </li>
 <li><pre><code class="lang-cpp">int mpartition(int a[], int l, int r) {
-int pivot = a[l];
+  int pivot = a[l];
 
-while (l&lt;r) {
-    while (l&lt;r &amp;&amp; pivot&lt;=a[r]) r--;
-    if (l&lt;r) a[l++]=a[r];
-    while (l&lt;r &amp;&amp; pivot&gt;a[l]) l++;
-    if (l&lt;r) a[r--]=a[l];
-}
-a[l]=pivot;
-return l;
+  while (l&lt;r) {
+      while (l&lt;r &amp;&amp; pivot&lt;=a[r]) r--;
+      if (l&lt;r) a[l++]=a[r];
+      while (l&lt;r &amp;&amp; pivot&gt;a[l]) l++;
+      if (l&lt;r) a[r--]=a[l];
+  }
+  a[l]=pivot;
+  return l;
 }
 void quick_sort (int a[], int l, int r) {
 
-if (l &lt; r) {
-    int q = mpartition(a, l, r);
-    msort(a, l, q-1);
-    msort(a, q+1, r);
-}
+  if (l &lt; r) {
+      int q = mpartition(a, l, r);
+      msort(a, l, q-1);
+      msort(a, q+1, r);
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li><p>6.4 算法分析</p>
 <ul>
@@ -513,108 +511,106 @@ if (l &lt; r) {
 <li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzEzMDg2OTktMzU2MTM0MjM3LmdpZg" alt></p>
 </li>
 <li><p>7.3 代码实现<br>注意：这里用到了完全二叉树的部分性质：详情见数据结构二叉树知识点</p>
-<ul>
+</li>
 <li><pre><code class="lang-java">//声明全局变量，用于记录数组array的长度；
-static int len;
-/**
- * 堆排序算法
- *
- * @param array
- * @return
- */
-public static int[] HeapSort(int[] array) {
-    len = array.length;
-    if (len &amp;lt; 1) return array;
-    //1.构建一个最大堆
-    buildMaxHeap(array);
-    //2.循环将堆首位（最大值）与末位交换，然后在重新调整最大堆
-    while (len &amp;gt; 0) {
-        swap(array, 0, len - 1);
-        len--;
-        adjustHeap(array, 0);
-    }
-    return array;
-}
-/**
- * 建立最大堆
- *
- * @param array
- */
-public static void buildMaxHeap(int[] array) {
-    //从最后一个非叶子节点开始向上构造最大堆
-    //for循环这样写会更好一点：i的左子树和右子树分别2i+1和2(i+1)
-    for (int i = (len/2- 1); i &amp;gt;= 0; i--) {
-        adjustHeap(array, i);
-    }
-}
-/**
- * 调整使之成为最大堆
- *
- * @param array
- * @param i
- */
-public static void adjustHeap(int[] array, int i) {
-    int maxIndex = i;
-    //如果有左子树，且左子树大于父节点，则将最大指针指向左子树
-    if (i * 2 &amp;lt; len &amp;amp;&amp;amp; array[i * 2] &amp;gt; array[maxIndex])
-        maxIndex = i * 2+1;   //感谢网友矫正，之前是i*2
-    //如果有右子树，且右子树大于父节点，则将最大指针指向右子树
-    if (i * 2 + 1 &amp;lt; len &amp;amp;&amp;amp; array[i * 2 + 1] &amp;gt; array[maxIndex])
-        maxIndex = i * 2 + 2;   //感谢网友矫正，之前是i*2+1
-    //如果父节点不是最大值，则将父节点与最大值交换，并且递归调整与父节点交换的位置。
-    if (maxIndex != i) {
-        swap(array, maxIndex, i);
-        adjustHeap(array, maxIndex);
-    }
-}
+  static int len;
+  /**
+   * 堆排序算法
+   *
+   * @param array
+   * @return
+   */
+  public static int[] HeapSort(int[] array) {
+      len = array.length;
+      if (len &amp;lt; 1) return array;
+      //1.构建一个最大堆
+      buildMaxHeap(array);
+      //2.循环将堆首位（最大值）与末位交换，然后在重新调整最大堆
+      while (len &amp;gt; 0) {
+          swap(array, 0, len - 1);
+          len--;
+          adjustHeap(array, 0);
+      }
+      return array;
+  }
+  /**
+   * 建立最大堆
+   *
+   * @param array
+   */
+  public static void buildMaxHeap(int[] array) {
+      //从最后一个非叶子节点开始向上构造最大堆
+      //for循环这样写会更好一点：i的左子树和右子树分别2i+1和2(i+1)
+      for (int i = (len/2- 1); i &amp;gt;= 0; i--) {
+          adjustHeap(array, i);
+      }
+  }
+  /**
+   * 调整使之成为最大堆
+   *
+   * @param array
+   * @param i
+   */
+  public static void adjustHeap(int[] array, int i) {
+      int maxIndex = i;
+      //如果有左子树，且左子树大于父节点，则将最大指针指向左子树
+      if (i * 2 &amp;lt; len &amp;amp;&amp;amp; array[i * 2] &amp;gt; array[maxIndex])
+          maxIndex = i * 2+1;   //感谢网友矫正，之前是i*2
+      //如果有右子树，且右子树大于父节点，则将最大指针指向右子树
+      if (i * 2 + 1 &amp;lt; len &amp;amp;&amp;amp; array[i * 2 + 1] &amp;gt; array[maxIndex])
+          maxIndex = i * 2 + 2;   //感谢网友矫正，之前是i*2+1
+      //如果父节点不是最大值，则将父节点与最大值交换，并且递归调整与父节点交换的位置。
+      if (maxIndex != i) {
+          swap(array, maxIndex, i);
+          adjustHeap(array, maxIndex);
+      }
+  }
 </code></pre>
 </li>
 <li><pre><code class="lang-cpp">void heapAdjust(int a[], int i, int nLength)
 {
-int nChild;
-int nTemp;
-for (nTemp = a[i]; 2 * i + 1 &lt; nLength; i = nChild)
-{
-    // 子结点的位置=2*（父结点位置）+ 1
-    nChild = 2 * i + 1;
-    // 得到子结点中较大的结点
-    if ( nChild &lt; nLength-1 &amp;&amp; a[nChild + 1] &gt; a[nChild])
-        ++nChild;
-    // 如果较大的子结点大于父结点那么把较大的子结点往上移动，替换它的父结点
-    if (nTemp &lt; a[nChild])
-    {
-        a[i] = a[nChild];
-        a[nChild]= nTemp;
-    }
-    else
-    // 否则退出循环
-        break;
-}
+  int nChild;
+  int nTemp;
+  for (nTemp = a[i]; 2 * i + 1 &lt; nLength; i = nChild)
+  {
+      // 子结点的位置=2*（父结点位置）+ 1
+      nChild = 2 * i + 1;
+      // 得到子结点中较大的结点
+      if ( nChild &lt; nLength-1 &amp;&amp; a[nChild + 1] &gt; a[nChild])
+          ++nChild;
+      // 如果较大的子结点大于父结点那么把较大的子结点往上移动，替换它的父结点
+      if (nTemp &lt; a[nChild])
+      {
+          a[i] = a[nChild];
+          a[nChild]= nTemp;
+      }
+      else
+      // 否则退出循环
+          break;
+  }
 }
 // 堆排序算法
 void heap_sort(int a[],int length)
 {
-int tmp;
-// 调整序列的前半部分元素，调整完之后第一个元素是序列的最大的元素
-//length/2-1是第一个非叶节点，此处&quot;/&quot;为整除
-for (int i = length / 2 - 1; i &gt;= 0; --i)
-    heapAdjust(a, i, length);
-// 从最后一个元素开始对序列进行调整，不断的缩小调整的范围直到第一个元素
-for (int i = length - 1; i &gt; 0; --i)
-{
-    // 把第一个元素和当前的最后一个元素交换，
-    // 保证当前的最后一个位置的元素都是在现在的这个序列之中最大的
-  ///  Swap(&amp;a[0], &amp;a[i]);
-      tmp = a[i];
-      a[i] = a[0];
-      a[0] = tmp;
-    // 不断缩小调整heap的范围，每一次调整完毕保证第一个元素是当前序列的最大值
-    heapAdjust(a, 0, i);
-}
+  int tmp;
+  // 调整序列的前半部分元素，调整完之后第一个元素是序列的最大的元素
+  //length/2-1是第一个非叶节点，此处&quot;/&quot;为整除
+  for (int i = length / 2 - 1; i &gt;= 0; --i)
+      heapAdjust(a, i, length);
+  // 从最后一个元素开始对序列进行调整，不断的缩小调整的范围直到第一个元素
+  for (int i = length - 1; i &gt; 0; --i)
+  {
+      // 把第一个元素和当前的最后一个元素交换，
+      // 保证当前的最后一个位置的元素都是在现在的这个序列之中最大的
+    ///  Swap(&amp;a[0], &amp;a[i]);
+        tmp = a[i];
+        a[i] = a[0];
+        a[0] = tmp;
+      // 不断缩小调整heap的范围，每一次调整完毕保证第一个元素是当前序列的最大值
+      heapAdjust(a, 0, i);
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li><p>7.4 算法分析</p>
 <ul>
@@ -639,93 +635,91 @@ for (int i = length - 1; i &gt; 0; --i)
 <li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzE3NDA4NDAtNjk2ODE4MS5naWY" alt></p>
 </li>
 <li><p>8.3 代码实现</p>
-<ul>
-<li><pre><code class="lang-java"> /**
- * 计数排序
- *
- * @param array
- * @return
- */
-public static int[] CountingSort(int[] array) {
-    if (array.length == 0) return array;
-    int bias, min = array[0], max = array[0];
-    for (int i = 1; i &amp;lt; array.length; i++) {
-        if (array[i] &amp;gt; max)
-            max = array[i];
-        if (array[i] &amp;lt; min)
-            min = array[i];
-    }
-    bias = 0 - min;
-    int[] bucket = new int[max - min + 1];
-    Arrays.fill(bucket, 0);
-    for (int i = 0; i &amp;lt; array.length; i++) {
-        bucket[array[i] + bias]++;
-    }
-    int index = 0, i = 0;
-    while (index &amp;lt; array.length) {
-        if (bucket[i] != 0) {
-            array[index] = i - bias;
-            bucket[i]--;
-            index++;
-        } else
-            i++;
-    }
-    return array;
-}
+</li>
+<li><pre><code class="lang-java">   /**
+   * 计数排序
+   *
+   * @param array
+   * @return
+   */
+  public static int[] CountingSort(int[] array) {
+      if (array.length == 0) return array;
+      int bias, min = array[0], max = array[0];
+      for (int i = 1; i &amp;lt; array.length; i++) {
+          if (array[i] &amp;gt; max)
+              max = array[i];
+          if (array[i] &amp;lt; min)
+              min = array[i];
+      }
+      bias = 0 - min;
+      int[] bucket = new int[max - min + 1];
+      Arrays.fill(bucket, 0);
+      for (int i = 0; i &amp;lt; array.length; i++) {
+          bucket[array[i] + bias]++;
+      }
+      int index = 0, i = 0;
+      while (index &amp;lt; array.length) {
+          if (bucket[i] != 0) {
+              array[index] = i - bias;
+              bucket[i]--;
+              index++;
+          } else
+              i++;
+      }
+      return array;
+  }
 </code></pre>
 </li>
 <li><pre><code class="lang-cpp">void findArrMaxMin(int a[], int size, int *min, int *max)
 {
-if(size == 0) {
-    return;
-}
-if(size == 1) {
-    *min = *max = a[0];
-    return;
-}
-*min = a[0] &gt; a[1] ? a[1] : a[0];
-*max = a[0] &lt;= a[1] ? a[1] : a[0];
-int i, j;
-for(i = 2, j = 3; i &lt; size, j &lt; size; i += 2, j += 2) {
-    int tempmax = a[i] &gt;= a[j] ? a[i] : a[j];
-    int tempmin = a[i] &lt; a[j] ? a[i] : a[j];
+  if(size == 0) {
+      return;
+  }
+  if(size == 1) {
+      *min = *max = a[0];
+      return;
+  }
+  *min = a[0] &gt; a[1] ? a[1] : a[0];
+  *max = a[0] &lt;= a[1] ? a[1] : a[0];
+  int i, j;
+  for(i = 2, j = 3; i &lt; size, j &lt; size; i += 2, j += 2) {
+      int tempmax = a[i] &gt;= a[j] ? a[i] : a[j];
+      int tempmin = a[i] &lt; a[j] ? a[i] : a[j];
 
-    if(tempmax &gt; *max)
-        *max = tempmax;
-    if(tempmin &lt; *min)
-        *min = tempmin;
-}
-//如果数组元素是奇数个，那么最后一个元素在分组的过程中没有包含其中，
-//这里单独比较
-if(size % 2 != 0) {
-    if(a[size -1] &gt; *max)
-        *max = a[size - 1];
-    else if(a[size -1] &lt; *min)
-        *min = a[size -1];
-}
+      if(tempmax &gt; *max)
+          *max = tempmax;
+      if(tempmin &lt; *min)
+          *min = tempmin;
+  }
+  //如果数组元素是奇数个，那么最后一个元素在分组的过程中没有包含其中，
+  //这里单独比较
+  if(size % 2 != 0) {
+      if(a[size -1] &gt; *max)
+          *max = a[size - 1];
+      else if(a[size -1] &lt; *min)
+          *min = a[size -1];
+  }
 }
 void count_sort(int a[], int b[], int n) {
-int max, min;
-findArrMaxMin(a, n, &amp;min, &amp;max);
-int numRange = max-min+1;
-int* counter = new int[numRange];
-int i, j, k;
-for (k=0; k&lt;numRange; k++)
-    counter[k]=0;
-for (i=0; i&lt;n; i++)
-    counter[a[i]-min]++;
-for (k=1; k&lt;numRange; k++)
-    counter[k] += counter[k-1];
-for (j=n-1; j&gt;=0; j--) {
-    int v = a[j];
-    int index = counter[v-min]-1;
-    b[index]=v;
-    counter[v-min]--;
-}
+  int max, min;
+  findArrMaxMin(a, n, &amp;min, &amp;max);
+  int numRange = max-min+1;
+  int* counter = new int[numRange];
+  int i, j, k;
+  for (k=0; k&lt;numRange; k++)
+      counter[k]=0;
+  for (i=0; i&lt;n; i++)
+      counter[a[i]-min]++;
+  for (k=1; k&lt;numRange; k++)
+      counter[k] += counter[k-1];
+  for (j=n-1; j&gt;=0; j--) {
+      int v = a[j];
+      int index = counter[v-min]-1;
+      b[index]=v;
+      counter[v-min]--;
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li><p>8.4 算法分析</p>
 <ul>
@@ -752,53 +746,51 @@ for (j=n-1; j&gt;=0; j--) {
 <li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzIxMDcwOTAtMTkyMDcwMjAxMS5wbmc?x-oss-process=image/format,png" alt></p>
 </li>
 <li><p>9.3 代码实现</p>
-<ul>
+</li>
 <li><pre><code class="lang-java">/**
- * 桶排序
- *
- * @param array
- * @param bucketSize
- * @return
- */
-public static ArrayList&amp;lt;Integer&amp;gt; BucketSort(ArrayList&amp;lt;Integer&amp;gt; array, int bucketSize) {
-    if (array == null || array.size() &amp;lt; 2)
-        return array;
-    int max = array.get(0), min = array.get(0);
-    // 找到最大值最小值
-    for (int i = 0; i &amp;lt; array.size(); i++) {
-        if (array.get(i) &amp;gt; max)
-            max = array.get(i);
-        if (array.get(i) &amp;lt; min)
-            min = array.get(i);
-    }
-    int bucketCount = (max - min) / bucketSize + 1;
-    ArrayList&amp;lt;ArrayList&amp;lt;Integer&amp;gt;&amp;gt; bucketArr = new ArrayList&amp;lt;&amp;gt;(bucketCount);
-    ArrayList&amp;lt;Integer&amp;gt; resultArr = new ArrayList&amp;lt;&amp;gt;();
-    for (int i = 0; i &amp;lt; bucketCount; i++) {
-        bucketArr.add(new ArrayList&amp;lt;Integer&amp;gt;());
-    }
-    for (int i = 0; i &amp;lt; array.size(); i++) {
-        bucketArr.get((array.get(i) - min) / bucketSize).add(array.get(i));
-    }
-    for (int i = 0; i &amp;lt; bucketCount; i++) {
-        if (bucketSize == 1) { // 如果带排序数组中有重复数字时
-            for (int j = 0; j &amp;lt; bucketArr.get(i).size(); j++)
-                resultArr.add(bucketArr.get(i).get(j));
-        } else {
-            if (bucketCount == 1)
-                bucketSize--;
-            ArrayList&amp;lt;Integer&amp;gt; temp = BucketSort(bucketArr.get(i), bucketSize);
-            for (int j = 0; j &amp;lt; temp.size(); j++)
-                resultArr.add(temp.get(j));
-        }
-    }
-    return resultArr;
-}
+   * 桶排序
+   *
+   * @param array
+   * @param bucketSize
+   * @return
+   */
+  public static ArrayList&amp;lt;Integer&amp;gt; BucketSort(ArrayList&amp;lt;Integer&amp;gt; array, int bucketSize) {
+      if (array == null || array.size() &amp;lt; 2)
+          return array;
+      int max = array.get(0), min = array.get(0);
+      // 找到最大值最小值
+      for (int i = 0; i &amp;lt; array.size(); i++) {
+          if (array.get(i) &amp;gt; max)
+              max = array.get(i);
+          if (array.get(i) &amp;lt; min)
+              min = array.get(i);
+      }
+      int bucketCount = (max - min) / bucketSize + 1;
+      ArrayList&amp;lt;ArrayList&amp;lt;Integer&amp;gt;&amp;gt; bucketArr = new ArrayList&amp;lt;&amp;gt;(bucketCount);
+      ArrayList&amp;lt;Integer&amp;gt; resultArr = new ArrayList&amp;lt;&amp;gt;();
+      for (int i = 0; i &amp;lt; bucketCount; i++) {
+          bucketArr.add(new ArrayList&amp;lt;Integer&amp;gt;());
+      }
+      for (int i = 0; i &amp;lt; array.size(); i++) {
+          bucketArr.get((array.get(i) - min) / bucketSize).add(array.get(i));
+      }
+      for (int i = 0; i &amp;lt; bucketCount; i++) {
+          if (bucketSize == 1) { // 如果带排序数组中有重复数字时
+              for (int j = 0; j &amp;lt; bucketArr.get(i).size(); j++)
+                  resultArr.add(bucketArr.get(i).get(j));
+          } else {
+              if (bucketCount == 1)
+                  bucketSize--;
+              ArrayList&amp;lt;Integer&amp;gt; temp = BucketSort(bucketArr.get(i), bucketSize);
+              for (int j = 0; j &amp;lt; temp.size(); j++)
+                  resultArr.add(temp.get(j));
+          }
+      }
+      return resultArr;
+  }
 </code></pre>
 </li>
 <li><code>cpp</code></li>
-</ul>
-</li>
 <li><p>9.4 算法分析<br>桶排序最好情况下使用线性时间O(n)，桶排序的时间复杂度，取决与对各个桶之间数据进行排序的时间复杂度，因为其它部分的时间复杂度都为O(n)。很显然，桶划分的越小，各个桶之间的数据越少，排序所用的时间也会越少。但相应的空间消耗就会增大。</p>
 <ul>
 <li>最佳情况：T(n) = O(n+k)</li>
@@ -807,7 +799,7 @@ public static ArrayList&amp;lt;Integer&amp;gt; BucketSort(ArrayList&amp;lt;Integ
 </ul>
 </li>
 </ul>
-<h3 id="10、基数排序（Radix-Sort）"><a href="#10、基数排序（Radix-Sort）" class="headerlink" title="10、基数排序（Radix Sort）"></a>10、基数排序（Radix Sort）</h3><p>基数排序也是非比较的排序算法，对每一位进行排序，从最低位开始排序，复杂度为O(kn),为数组长度，k为数组中的数的最大的位数； </p>
+<h3 id="10、基数排序（Radix-Sort）"><a href="#10、基数排序（Radix-Sort）" class="headerlink" title="10、基数排序（Radix Sort）"></a>10、基数排序（Radix Sort）</h3><p>基数排序也是非比较的排序算法，对每一位进行排序，从最低位开始排序，复杂度为O(kn),为数组长度，k为数组中的数的最大的位数；</p>
 <p>基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以是稳定的。</p>
 <ul>
 <li>10.1 算法描述<ul>
@@ -820,82 +812,80 @@ public static ArrayList&amp;lt;Integer&amp;gt; BucketSort(ArrayList&amp;lt;Integ
 <li><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE3LmNuYmxvZ3MuY29tL2Jsb2cvODQ5NTg5LzIwMTcxMC84NDk1ODktMjAxNzEwMTUyMzI0NTM2NjgtMTM5NzY2MjUyNy5naWY" alt></p>
 </li>
 <li><p>10.3 代码实现</p>
-<ul>
+</li>
 <li><pre><code class="lang-java">/**
- * 基数排序
- * @param array
- * @return
- */
-public static int[] RadixSort(int[] array) {
-    if (array == null || array.length &amp;lt; 2)
-        return array;
-    // 1.先算出最大数的位数；
-    int max = array[0];
-    for (int i = 1; i &amp;lt; array.length; i++) {
-        max = Math.max(max, array[i]);
-    }
-    int maxDigit = 0;
-    while (max != 0) {
-        max /= 10;
-        maxDigit++;
-    }
-    int mod = 10, div = 1;
-    ArrayList&amp;lt;ArrayList&amp;lt;Integer&amp;gt;&amp;gt; bucketList = new ArrayList&amp;lt;ArrayList&amp;lt;Integer&amp;gt;&amp;gt;();
-    for (int i = 0; i &amp;lt; 10; i++)
-        bucketList.add(new ArrayList&amp;lt;Integer&amp;gt;());
-    for (int i = 0; i &amp;lt; maxDigit; i++, mod *= 10, div *= 10) {
-        for (int j = 0; j &amp;lt; array.length; j++) {
-            int num = (array[j] % mod) / div;
-            bucketList.get(num).add(array[j]);
-        }
-        int index = 0;
-        for (int j = 0; j &amp;lt; bucketList.size(); j++) {
-            for (int k = 0; k &amp;lt; bucketList.get(j).size(); k++)
-                array[index++] = bucketList.get(j).get(k);
-            bucketList.get(j).clear();
-        }
-    }
-    return array;
-}
+   * 基数排序
+   * @param array
+   * @return
+   */
+  public static int[] RadixSort(int[] array) {
+      if (array == null || array.length &amp;lt; 2)
+          return array;
+      // 1.先算出最大数的位数；
+      int max = array[0];
+      for (int i = 1; i &amp;lt; array.length; i++) {
+          max = Math.max(max, array[i]);
+      }
+      int maxDigit = 0;
+      while (max != 0) {
+          max /= 10;
+          maxDigit++;
+      }
+      int mod = 10, div = 1;
+      ArrayList&amp;lt;ArrayList&amp;lt;Integer&amp;gt;&amp;gt; bucketList = new ArrayList&amp;lt;ArrayList&amp;lt;Integer&amp;gt;&amp;gt;();
+      for (int i = 0; i &amp;lt; 10; i++)
+          bucketList.add(new ArrayList&amp;lt;Integer&amp;gt;());
+      for (int i = 0; i &amp;lt; maxDigit; i++, mod *= 10, div *= 10) {
+          for (int j = 0; j &amp;lt; array.length; j++) {
+              int num = (array[j] % mod) / div;
+              bucketList.get(num).add(array[j]);
+          }
+          int index = 0;
+          for (int j = 0; j &amp;lt; bucketList.size(); j++) {
+              for (int k = 0; k &amp;lt; bucketList.get(j).size(); k++)
+                  array[index++] = bucketList.get(j).get(k);
+              bucketList.get(j).clear();
+          }
+      }
+      return array;
+  }
 </code></pre>
 </li>
 <li><pre><code class="lang-cpp">int getNumInPos(int num,int pos) //获得某个数字的第pos位的值
 {
-int temp = 1;
-for (int i = 0; i &lt; pos - 1; i++)
-    temp *= 10;
+  int temp = 1;
+  for (int i = 0; i &lt; pos - 1; i++)
+      temp *= 10;
 
-return (num / temp) % 10;
+  return (num / temp) % 10;
 }
 #define RADIX_10 10    //十个桶，表示每一位的十个数字
 #define KEYNUM 5     //整数位数
 void radix_sort(int* pDataArray, int iDataNum)
 {
-int *radixArrays[RADIX_10];    //分别为0~9的序列空间
-for (int i = 0; i &lt; RADIX_10; i++)
-{
-    radixArrays[i] = new int[iDataNum];
-    radixArrays[i][0] = 0;    //index为0处记录这组数据的个数
-}
-for (int pos = 1; pos &lt;= KEYNUM; pos++)    //从个位开始到31位
-{
-    for (int i = 0; i &lt; iDataNum; i++)    //分配过程
-    {
-        int num = getNumInPos(pDataArray[i], pos);
-        int index = ++radixArrays[num][0];
-        radixArrays[num][index] = pDataArray[i];
-    }
-    for (int i = 0, j =0; i &lt; RADIX_10; i++) //写回到原数组中，复位radixArrays
-    {
-        for (int k = 1; k &lt;= radixArrays[i][0]; k++)
-            pDataArray[j++] = radixArrays[i][k];
-        radixArrays[i][0] = 0;
-    }
-}
+  int *radixArrays[RADIX_10];    //分别为0~9的序列空间
+  for (int i = 0; i &lt; RADIX_10; i++)
+  {
+      radixArrays[i] = new int[iDataNum];
+      radixArrays[i][0] = 0;    //index为0处记录这组数据的个数
+  }
+  for (int pos = 1; pos &lt;= KEYNUM; pos++)    //从个位开始到31位
+  {
+      for (int i = 0; i &lt; iDataNum; i++)    //分配过程
+      {
+          int num = getNumInPos(pDataArray[i], pos);
+          int index = ++radixArrays[num][0];
+          radixArrays[num][index] = pDataArray[i];
+      }
+      for (int i = 0, j =0; i &lt; RADIX_10; i++) //写回到原数组中，复位radixArrays
+      {
+          for (int k = 1; k &lt;= radixArrays[i][0]; k++)
+              pDataArray[j++] = radixArrays[i][k];
+          radixArrays[i][0] = 0;
+      }
+  }
 }
 </code></pre>
-</li>
-</ul>
 </li>
 <li><p>10.4 算法分析</p>
 <ul>
@@ -947,19 +937,37 @@ for (int pos = 1; pos &lt;= KEYNUM; pos++)    //从个位开始到31位
                     <div class="toc" style="background: none;"></div>
                     <section class="post-squares nextprev">
                         
+                            
+                                <div class="post-nepre half previous">
+                                    
+                                                <a href="/2019/11/07/Sort/" rel="prev">
+                                                    <div class="background">
+                                                        <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
+                                                    </div>
+                                                    <span class="label">
+              Previous Post</span>
+                                                    <div class="info">
+                                                        <h3>
+                                                            排序算法(上)
+                                                        </h3>
+                                                        <hr>
+                                                    </div>
+                                                </a>
+                                        </div>
+                                        
                                             
                                                 
-                                                            <div class="post-nepre full next">
-                                                                
-                                                                    <a href="/2019/11/07/Sort/" rel="next">
+                                                    <div class="post-nepre half next">
+                                                        
+                                                                    <a href="/2019/11/07/Web/" rel="next">
                                                                         <div class="background">
-                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
+                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
                                                                         </div>
                                                                         <span class="label">
               Next Post</span>
                                                                         <div class="info">
                                                                             <h3>
-                                                                                排序算法(上)
+                                                                                网站推荐
                                                                             </h3>
                                                                             <hr>
                                                                         </div>
