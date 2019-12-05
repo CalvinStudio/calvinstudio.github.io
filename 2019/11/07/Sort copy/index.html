@@ -612,6 +612,67 @@ void heap_sort(int a[],int length)
 }
 </code></pre>
 </li>
+<li><pre><code class="lang-cpp">#include&lt;iterator&gt;
+#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int BUCKET_NUM = 10;
+struct ListNode{
+  explicit ListNode(int i=0):mData(i),mNext(NULL){}
+  ListNode* mNext;
+  int mData;
+};
+ListNode* insert(ListNode* head,int val){
+  ListNode dummyNode;
+  ListNode *newNode = new ListNode(val);
+  ListNode *pre,*curr;
+  dummyNode.mNext = head;
+  pre = &amp;dummyNode;
+  curr = head;
+  while(NULL!=curr &amp;&amp; curr-&gt;mData&lt;=val){
+      pre = curr;
+      curr = curr-&gt;mNext;
+  }
+  newNode-&gt;mNext = curr;
+  pre-&gt;mNext = newNode;
+  return dummyNode.mNext;
+}
+ListNode* Merge(ListNode *head1,ListNode *head2){
+  ListNode dummyNode;
+  ListNode *dummy = &amp;dummyNode;
+  while(NULL!=head1 &amp;&amp; NULL!=head2){
+      if(head1-&gt;mData &lt;= head2-&gt;mData){
+          dummy-&gt;mNext = head1;
+          head1 = head1-&gt;mNext;
+      }else{
+          dummy-&gt;mNext = head2;
+          head2 = head2-&gt;mNext;
+      }
+      dummy = dummy-&gt;mNext;
+  }
+  if(NULL!=head1) dummy-&gt;mNext = head1;
+  if(NULL!=head2) dummy-&gt;mNext = head2;
+
+  return dummyNode.mNext;
+}
+void BucketSort(int n,int arr[]){
+  vector&lt;ListNode*&gt; buckets(BUCKET_NUM,(ListNode*)(0));
+  for(int i=0;i&lt;n;++i){
+      int index = arr[i]/BUCKET_NUM;
+      ListNode *head = buckets.at(index);
+      buckets.at(index) = insert(head,arr[i]);
+  }
+  ListNode *head = buckets.at(0);
+  for(int i=1;i&lt;BUCKET_NUM;++i){
+      head = Merge(head,buckets.at(i));
+  }
+  for(int i=0;i&lt;n;++i){
+      arr[i] = head-&gt;mData;
+      head = head-&gt;mNext;
+  }
+}
+</code></pre>
+</li>
 <li><p>7.4 算法分析</p>
 <ul>
 <li>最佳情况：T(n) = O(nlogn)</li>
