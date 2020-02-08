@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/https://calvinstudio.github.io/"/>
-  <updated>2019-12-10T07:24:15.689Z</updated>
+  <updated>2020-02-08T10:21:22.810Z</updated>
   <id>/https://calvinstudio.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多CPU线程多GPU并行</title>
+    <link href="/https://calvinstudio.github.io/2020/02/08/OpenMPGPU/"/>
+    <id>/https://calvinstudio.github.io/2020/02/08/OpenMPGPU/</id>
+    <published>2020-02-07T16:00:00.000Z</published>
+    <updated>2020-02-08T10:21:22.810Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;多CPU线程多GPU并行&quot;&gt;&lt;a href=&quot;#多CPU线程多GPU并行&quot; class=&quot;headerlink&quot; title=&quot;多CPU线程多GPU并行&quot;&gt;&lt;/a&gt;多CPU线程多GPU并行&lt;/h2&gt;&lt;h3 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="资源" scheme="/https://calvinstudio.github.io/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="OPENMP-CUDA" scheme="/https://calvinstudio.github.io/tags/OPENMP-CUDA/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 操作命令大全</title>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">CALVIN</title>
+  <title itemprop="name">多CPU线程多GPU并行 | CALVIN</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -366,365 +366,169 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
-<div id="content" class="site-content">
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://github.com/CalvinStudio" target="_blank">
-        <div class="img">
-          <img src="https://s2.ax1x.com/2019/11/12/M1huWT.md.jpg">
-        </div>
-        <div class="info">
-          <h3>GITHUB</h3>
-          <p>github</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://www.zhihu.com/people/cai-wei-89757/activities" target="_blank">
-        <div class="img">
-          <img src="https://s2.ax1x.com/2019/11/12/M8K3O1.jpg">
-        </div>
-        <div class="info">
-          <h3>知乎</h3>
-          <p>知乎</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://i.csdn.net/#/uc/profile" target="_blank">
-        <div class="img">
-          <img src="https://s2.ax1x.com/2019/11/12/M8QcRg.jpg">
-        </div>
-        <div class="info">
-          <h3>CSDN</h3>
-          <p>csnd</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://gitee.com/CALVINCW" target="_blank">
-        <div class="img">
-          <img src="https://s2.ax1x.com/2019/11/13/MJDwcj.png">
-        </div>
-        <div class="info">
-          <h3>GITEE</h3>
-          <p>码云</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://www.jianshu.com/u/8e044620cc08" target="_blank">
-        <div class="img">
-          <img src="https://s2.ax1x.com/2019/11/13/MJDDun.jpg">
-        </div>
-        <div class="info">
-          <h3>简书</h3>
-          <p>jianshu</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/theme-sakura/" target="_blank">
-        <div class="img">
-          <img src="https://s2.ax1x.com/2019/11/12/M1s0yt.md.jpg">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
 
-  <div class="post-thumb">
-    <a href="/2020/02/08/OpenMPGPU/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2020/02/08/1WSj54.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-2-8 00:02</div>
-      <a href="/2020/02/08/OpenMPGPU/" class="post-title">
-        <h3>多CPU线程多GPU并行</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/OPENMP-CUDA/">OPENMP-CUDA<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2020/02/08/OpenMPGPU/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
+    <div class="pattern-center single-center">
+        <!-- 有配图默认渲染第一张 -->
+        <div class="pattern-attachment-img lazyload" style="background-image: url(https://s2.ax1x.com/2020/02/08/1WSj54.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2020/02/08/1WSj54.jpg">
+        </div>
+        <header class="pattern-header single-header">
+            <h1 class="entry-title">
+                多CPU线程多GPU并行
+            </h1>
+            <p class="entry-census">
+                <span>
+          <a href="">
+            <img src="/img/avatar.png">
           </a>
-        </div>
-      </div>
+        </span>
+                <span>
+          <a href="">Calvin</a>
+        </span>
+                <span class="bull">
+        ·</span>
+                2020-2-8<span class="bull">
+        ·</span>
+                    <span id="busuanzi_value_page_pv"></span>次阅读</p>
+        </header>
     </div>
-  </div>
-</article>
-  
     
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+                        <div class="toc"></div>
+                        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+                        
+                                <div class="entry-content">
+                                    <h2 id="多CPU线程多GPU并行"><a href="#多CPU线程多GPU并行" class="headerlink" title="多CPU线程多GPU并行"></a>多CPU线程多GPU并行</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>1：首先利用openmp实现Cpu多线程并行</li>
+<li>2：然后将每个CPU线程各去唤醒一个GPU</li>
+<li>3：每个CPU线程分配给对应的GPU相同或不同类型的任务</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="lang-cpp">#include &quot;cuda_runtime.h&quot;
+#include &quot;device_launch_parameters.h&quot;
+#include &lt;stdio.h&gt;
+#include &lt;omp.h&gt;
+#include &lt;unistd.h&gt;
 
-  <div class="post-thumb">
-    <a href="/2019/12/10/LINUX/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/10/QBDQ2T.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-12-10 14:12</div>
-      <a href="/2019/12/10/LINUX/" class="post-title">
-        <h3>Linux 操作命令大全</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/Linux/">Linux<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/12/10/LINUX/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+__global__ void helloFromGPU(int i)
+{
+    for (int k = 0; k &lt; 10; k++)
+        printf(&quot;Hello World from GPU%d!\n&quot;, i);
+}
 
-  <div class="post-thumb">
-    <a href="/2019/12/05/Sort copy/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-12-5 22:12</div>
-      <a href="/2019/12/05/Sort copy/" class="post-title">
-        <h3>排序算法（下）</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/C/">C++<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/12/05/Sort copy/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+int main(void)
+{
+    // hello from cpu
+    const int cputhread = 15;
+    omp_set_num_threads(cputhread); // set threads
+    int threadsnum = omp_get_num_threads();
+#pragma omp parallel
+    {
+#pragma omp for
+        for (int i = 0; i &lt; 4; i++)
+        {
+            cudaSetDevice(i);
+            printf(&quot;Hello World from CPU%d!\n&quot;, i);
+            helloFromGPU&lt;&lt;&lt;1, 10&gt;&gt;&gt;(i);
+            cudaDeviceReset(); //重置CUDA设备释放程序占用的资源
+        }
+    }
+    // system(&quot;pause&quot;);
+    return 0;
+}
+</code></pre>
 
-  <div class="post-thumb">
-    <a href="/2019/12/04/Sort/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-12-4 22:12</div>
-      <a href="/2019/12/04/Sort/" class="post-title">
-        <h3>排序算法(上)</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/C/">C++<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/12/04/Sort/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+                                </div>
+                                <!-- .entry-content -->
+                                <div class="single-reward">
+                                    <div class="reward-open">赏
+                                        <div class="reward-main">
+                                            <ul class="reward-row">
+                                                <li class="alipay-code"><img src="/img/AliPay.jpg"></li>
+                                                <li class="wechat-code"><img src="/img/WeChatf.jpg"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+                                <footer class="post-footer">
+                                    <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+                                    <div class="post-tags">
+                                    </div>
+                                    <div class="post-share">
+                                        <div class="social-share sharehidden share-component"></div>
+                                        <i class="iconfont show-share icon-forward"></i>
+                                    </div>
+                                </footer>
+                                <!-- .entry-footer -->
+                    </article>
+                    <!-- #post-## -->
+                    <div class="toc" style="background: none;"></div>
+                    <section class="post-squares nextprev">
+                        
+                                            
+                                                
+                                                            <div class="post-nepre full next">
+                                                                
+                                                                    <a href="/2019/12/10/LINUX/" rel="next">
+                                                                        <div class="background">
+                                                                            <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/10/QBDQ2T.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://s2.ax1x.com/2019/12/10/QBDQ2T.jpg">
+                                                                        </div>
+                                                                        <span class="label">
+              Next Post</span>
+                                                                        <div class="info">
+                                                                            <h3>
+                                                                                Linux 操作命令大全
+                                                                            </h3>
+                                                                            <hr>
+                                                                        </div>
+                                                                    </a>
+                                                            </div>
+                                                            
+                    </section>
+                    
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "pGJkhG8G9AgFrtqJUTzrI5nv-gzGzoHsz",
+        appKey: "f73Me38CkG9kjk9zzXm8TsWt",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2019/12/01/Array/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/12/04/Q18uG9.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-12-1 22:12</div>
-      <a href="/2019/12/01/Array/" class="post-title">
-        <h3>多维数组内存分配与释放</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/C/">C++<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/12/01/Array/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+                        <section class="author-profile">
+                            <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                <a href="" class="profile gravatar"><img src="/img/avatar.png" itemprop="image" alt="Calvin" height="70" width="70"></a>
+                                <div class="meta">
+                                    <span class="title">Author</span>
+                                    <h3 itemprop="name">
+                                        <a href="" itemprop="url" rel="author">
+                                            Calvin
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <p><i class="iconfont icon-write"></i>
+                                
+                            </p>
+                        </section>
+                </main>
+                <!-- #main -->
+                </div>
+                <!-- #primary -->
+                </div>
 
-  <div class="post-thumb">
-    <a href="/2019/11/07/Web/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://s2.ax1x.com/2019/11/13/MJElaF.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-11-7 22:11</div>
-      <a href="/2019/11/07/Web/" class="post-title">
-        <h3>网站推荐</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/Tools/">Tools<em>·</em></a>
-          
-            <a href="/tags/网站/">网站<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/11/07/Web/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!--  -->
-  </div>
-  
-</div>
-
+                
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
