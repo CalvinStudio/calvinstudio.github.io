@@ -1158,7 +1158,7 @@
         border-bottom-color: #959da5;
         border-radius: 3px;
         box-shadow: inset 0 -1px 0 #959da5;
-        font-family: 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif
+        font-family: 'Hack', 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif
     }
     
     code,
@@ -2693,7 +2693,7 @@
         background: rgba(254, 250, 199, 1);
         color: #e67474;
         word-break: break-word;
-        font-family: 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif;
+        font-family: 'Hack', 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif;
         padding: 2px;
         text-shadow: none;
         border-radius: 5px
@@ -5044,7 +5044,7 @@
 }
 .header-info p {
     margin: 0;
-    font-family: 'Stencil', sans-serif;
+    font-family: 'Sten', sans-serif;
     font-weight: 700
 }
 .top-social {
@@ -8643,9 +8643,10 @@ a.toc-link {
 }
 .highlight-wrap code {
     background:#1d1f21;
-    color:#fff;
+    color:#cff;
     word-break:break-word;
-    font-family:'Source Code Pro',
+    font-family:'Hack',
+    'Source Code Pro',
     monospace,
     Helvetica,
     Tahoma,
@@ -8768,7 +8769,8 @@ a.toc-link {
     text-align:center;
     color:#888f96;
     background:#1d1f21;
-    font-family:'Source Code Pro',
+    font-family:'Hack',
+    'Source Code Pro',
     monospace,
     Helvetica,
     Tahoma,
@@ -8859,11 +8861,12 @@ a.toc-link {
     serif
 }
 .code-font {
-    font-family:'Source Code Pro',
+    font-family:'Hack',
+    'Source Code Pro',
     monospace
 }
-.Stencil-font {
-    font-family:'Stencil',
+.kraash.woff-font {
+    font-family:'kraash.woff',
     sans-serif
 }
 .serif {
@@ -8982,7 +8985,7 @@ a.toc-link {
     serif
 }
 .control-btn-sans-serif {
-    font-family:'Stencil',
+    font-family:'kraash.woff',
     sans-serif
 }
 .lazyload {
@@ -9237,7 +9240,8 @@ td.hljs-ln-numbers {
     text-align: center;
     color: #888f96;
     background: #1d1f21;
-    font-family: 'Source Code Pro',
+    font-family: 'Hack',
+    'Source Code Pro',
     monospace,
     Helvetica,
     Tahoma,
