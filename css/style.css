@@ -1975,7 +1975,7 @@ a:active {
     left: 50%;
     width: 28px;
     margin-left: -15px;
-    height: 2px;
+    height: 4px;
     background: #666;
     -webkit-transition: all .2s ease
 }
@@ -6975,7 +6975,7 @@ button.botui-actions-buttons-button {
 .logolink.moe-mashiro a {
     color: #464646;
     float: left;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: 800;
     height: 56px;
     line-height: 56px;
@@ -6985,10 +6985,11 @@ button.botui-actions-buttons-button {
     text-decoration-line: none
 }
 .logolink.moe-mashiro .sakurasono {
-    font-size: 25px;
+    font-size: 40px;
     border-radius: 9px;
     padding-bottom: 2px;
-    padding-top: 5px
+    padding-top: 5px;
+    font-family: Stencil;
 }
 .logolink.moe-mashiro .shironeko {
     margin-left: -5px
@@ -7548,7 +7549,7 @@ z-index:99;
 cursor:pointer
 }
 .changeSkin-gear span:before {
-    content:"切换主题 | Change Skin "
+    content:"切杢主题 | Change Skin "
 }
 @media(max-width:800px) {
     .changeSkin-gear span::before {
