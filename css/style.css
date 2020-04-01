@@ -2656,7 +2656,7 @@ i.iconfont.hotpost {
     content: "\00B6";
     position: absolute;
     color: #ff6d6d;
-    font-family: 'Merriweather Sans', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+    font-family: 'Stencil', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
     padding-left: 6px;
     font-size: 1.03em
 }
@@ -2665,7 +2665,7 @@ i.iconfont.hotpost {
     content: "\00B6";
     position: absolute;
     color: #ff6d6d;
-    font-family: 'Merriweather Sans', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+    font-family: 'Stencil', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
     padding-left: 6px;
     font-size: 1.13em
 }
@@ -8819,7 +8819,7 @@ a.toc-link {
     overflow:hidden
 }
 .chinese-font {
-    font-family:'Merriweather Sans',
+    font-family:'Stencil',
     Helvetica,
     Tahoma,
     Arial,
@@ -8881,12 +8881,12 @@ a.toc-link {
 }
 @media(max-width:860px) {
     .serif {
-        font-family: 'Merriweather Sans', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif
+        font-family: 'Stencil', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif
     }
 }
 .moe-mashiro {
     font-family:'Moe-Mashiro',
-    'Merriweather Sans',
+    'Stencil',
     Helvetica,
     Tahoma,
     Arial,
