@@ -1077,7 +1077,7 @@ input,
 select,
 textarea {
     color: #404040;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 1.5
 }
 
@@ -3258,7 +3258,8 @@ h1.page-title.mb- {
 }
 
 .author-profile p {
-    font-size: 13px;
+    font-family: 'Hack';
+    font-size: 16px;
     line-height: 30px;
     margin: 15px 0 0;
     color: #7d8588;
@@ -5730,7 +5731,7 @@ i.iconfont.down {
     }
     
     .entry-content p {
-        font-size: 14px
+        font-size: 16px
     }
     
     .post-footer,
@@ -5990,7 +5991,8 @@ i.iconfont.down {
         width: 90px;
         height: 90px;
         max-width: 90px;
-        border-radius: 100%
+        border-radius: 100%;
+        background:#eff
     }
     
     #mo-nav .m-search form {
