@@ -1077,7 +1077,7 @@ input,
 select,
 textarea {
     color: #404040;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 1.5
 }
 
@@ -1167,7 +1167,7 @@ code,
 kbd,
 tt,
 var {
-    font-size: 15px;
+    font-size: 20px;
     font-size: .9375rem
 }
 
@@ -1530,7 +1530,7 @@ a:active {
     background-position: center center;
     background-origin: border-box;
     width: 100%;
-    height: 400px
+    height: 400px;
 }
 
 .pattern-center header.pattern-header {
@@ -1970,6 +1970,7 @@ a:active {
 }
 
 #show-nav .line {
+    font-size:20px;
     position: absolute;
     top: 7px;
     left: 50%;
@@ -2293,6 +2294,7 @@ i.iconfont.hotpost {
 }
 
 .post-list-thumb .post-title h3 {
+    font-size: 20px;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -2305,7 +2307,7 @@ i.iconfont.hotpost {
 .post-meta,
 .post-meta a {
     color: #888;
-    font-size: 12px
+    font-size: 15px
 }
 
 .comments-number {
@@ -2662,16 +2664,16 @@ i.iconfont.hotpost {
 }
 
 .serif .entry-content h2:after {
-    content: "\00B6";
+    content: "\2721";
     position: absolute;
     color: #ff6d6d;
-    font-family: 'Stencil', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
+    font-family: 'Hack', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif;
     padding-left: 6px;
     font-size: 1.13em
 }
 
 .entry-content h3:after {
-    content: "#";
+    content: "\272F";
     left: 0;
     position: absolute;
     color: #ff6d6d
@@ -2692,10 +2694,10 @@ i.iconfont.hotpost {
 }
 
 .entry-content code {
-    background: rgba(254, 250, 199, 1);
-    color: #e67474;
+    background: #eef;
+    color: #9000ff;
     word-break: break-word;
-    font-family: 'Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif;
+    font-family: 'Hack','Source Code Pro', monospace, Helvetica, Tahoma, Arial, STXihei, "STHeiti Light", "Microsoft YaHei", sans-serif;
     padding: 2px;
     text-shadow: none;
     border-radius: 5px
@@ -5049,7 +5051,8 @@ li.feature-2 {
 .header-info p {
     margin: 0;
     font-family: 'Hack', sans-serif;
-    font-weight: 700
+    font-weight: 700;
+    font-size:18px;
 }
 .top-social {
     height: 32px;
@@ -6043,7 +6046,7 @@ i.iconfont.down {
     }
     
     #mo-nav li ul li a {
-        font-size: 13px;
+        font-size: 15px;
         color: #9cacc5
     }
     
@@ -6953,7 +6956,7 @@ button.botui-actions-buttons-button {
     text-decoration-line: none
 }
 .logolink .sakurasono {
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 5px;
     color: #464646;
     height: auto;
@@ -8456,9 +8459,9 @@ a.toc-link {
     cursor:pointer
 }
 .top-feature-row {
-    width:100%;
+    width:101%;
     height:auto;
-    margin-top:55px
+    margin-top:50px
 }
 .top-feature-v2 {
     display:inline-block
@@ -8646,9 +8649,10 @@ a.toc-link {
 }
 .highlight-wrap code {
     background:#1d1f21;
-    color:#fff;
+    color:#cff;
     word-break:break-word;
-    font-family:'Source Code Pro',
+    font-family:'Hack',
+    'Source Code Pro',
     monospace,
     Helvetica,
     Tahoma,
@@ -8702,13 +8706,12 @@ a.toc-link {
 }
 .hljs-comment,
 .hljs-quote {
-    color:#888f96;
-    font-style:italic
+    color:#0a7c00;
 }
 .hljs-doctag,
 .hljs-formula,
 .hljs-keyword {
-    color:#c678dd
+    color:#dfa3d7
 }
 .hljs-deletion,
 .hljs-name,
@@ -8747,7 +8750,7 @@ a.toc-link {
 .hljs-selector-id,
 .hljs-symbol,
 .hljs-title {
-    color:#61aeee
+    color:#b575ff
 }
 .hljs-emphasis {
     font-style:italic
@@ -8881,7 +8884,7 @@ a.toc-link {
 }
 @media(max-width:860px) {
     .serif {
-        font-family: 'Stencil', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif
+        font-family: 'Hack', Helvetica, Tahoma, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei', sans-serif
     }
 }
 .moe-mashiro {
@@ -9273,7 +9276,7 @@ td.hljs-ln-numbers {
     padding-top: 4px;
     padding-right: 2px;
     z-index: 2;
-    font-size: 16px;
+    font-size: 20px;
 }
 .toc {
     width: 200px;
